@@ -1,0 +1,20 @@
+// =====================================================
+// Components / App
+// =====================================================
+
+.c-app {
+  width: 100%;
+  // &.-main-nav-open,
+  // &.-user-nav-open,
+  &.-form-open {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: $from-large) {
+    .c-app {
+      height: 100vh;
+      overflow: hidden;
+    }
+  }
+}

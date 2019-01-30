@@ -1,0 +1,33 @@
+// ======================================================
+// Objects / Flex
+// ======================================================
+
+.o-flex {
+  display: flex;
+
+  // Align
+  &.-center {
+    align-items: center;
+    justify-content: center;
+  }
+  &.-center-h {
+    justify-content: center;
+  }
+  &.-center-v {
+    align-items: center;
+  }
+
+  // Direction
+  &.-col {
+    flex-direction: column;
+  }
+  &.-col-inv {
+    flex-direction: column-reverse;
+  }
+  &.-row {
+    flex-direction: row;
+  }
+  &.-row-inv {
+    flex-direction: row-reverse;
+  }
+}
