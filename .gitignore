@@ -71,16 +71,12 @@ typings/
 
 # files
 package-lock.json
-config/default.js
 
 # Serverless directories
 .serverless
 
 # Build files
 build/
-
-# Other directories
-public/assets/
 
 # Temporary
 OLD/
