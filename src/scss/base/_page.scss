@@ -8,23 +8,19 @@
 // 1. Set the default `font-size` and `line-height` for the entire project,
 //    sourced from our default variables.
 // 2. Set the default `background-color` for the entire project.
-// 3. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
-//    navigating between pages that do/do not have enough content to produce
-//    scrollbars naturally. This feature will only occur on mobile devices.
-// 4. On desktop, the app will be displayed full screen. There is no scroll
-//    bar displayed at the top level. The user can only scroll in the main
-//    content of the application.
+// 3. TODO
+// 4. TODO
 // 5. Ensure the page always fills at least the entire height of the viewport.
 //
 html {
   width: 100vw;
-  overflow-x: hidden; /* [3] */
-  // overflow-y: scroll; /* [3] */
+  min-width: 570px; /* [3] */
+  overflow: hidden;
   min-height: 100%; /* [5] */
   color: $color;
   font-family: $font-family;
   line-height: $line-height; /* [1] */
-  background-color: $gray-light; /* [2] */
+  background-color: $white; /* [2] */
 
   @media (max-width: $to-medium) {
     font-size: 12px;
@@ -39,20 +35,6 @@ html {
   }
 }
 
-@media (min-width: $from-large) {
-  html,
-  main {
-    height: 100vh;
-    overflow-y: hidden; /* [4] */
-  }
-}
-
-::selection {
-  background-color: $selection-background-color;
-  color: $selection-text-color;
-  text-shadow: none;
-}
-
 a {
   @include u-hocus {
     color: $link-hover-color;
@@ -64,23 +46,5 @@ a {
 ul {
   padding: 0;
   margin: 0;
-}
-
-// Scrollbar (webkit)
-// ===================================================
-
-::-webkit-scrollbar {
-  width: rem($app--scrollbar-width);
-}
-
-::-webkit-scrollbar-button {
-  display: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $scroll-bar-thumb-color;
-}
-
-::-webkit-scrollbar-track {
-  background-color: $scroll-bar-track-color;
+  list-style-type: none;
 }

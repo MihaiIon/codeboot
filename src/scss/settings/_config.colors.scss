@@ -13,7 +13,9 @@ $gray-dark: #383838;
 // Specific
 // =============================================================================
 // Main
-$novice-color: #29adc9;
+$novice-color: #28a5c0;
+$novice-color-dark: darken($novice-color, 6%);
+$novice-color-light: lighten($novice-color, 15%);
 $default-color: #e2653f;
 
 $green: #32cd70;
