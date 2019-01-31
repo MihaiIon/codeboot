@@ -1,25 +1,25 @@
 {
-  "Base :: Code Separator": {
+  "Base | Code Separator": {
     "scope": "scss",
     "prefix": "sep",
     "body": "// ======================================================"
   },
-  "Base :: Formated Variable": {
+  "Base | Formated Variable": {
     "scope": "scss",
     "prefix": "var",
     "body": "$${1:${TM_FILENAME_BASE/_(.*)/$1/}}--${2:prop-name}: $0;"
   },
-  "Base :: Darken Color": {
+  "Base | Darken Color": {
     "scope": "scss",
     "prefix": "darken",
     "body": "darken($${1:var-name}, ${0:10}%);"
   },
-  "Base :: Lighten Color": {
+  "Base | Lighten Color": {
     "scope": "scss",
     "prefix": "lighten",
     "body": "lighten($${1:var-name}, ${0:10}%);"
   },
-  "Template :: SASS File": {
+  "Template | SASS File": {
     "scope": "scss",
     "prefix": "t_sass",
     "body": [
