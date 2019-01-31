@@ -1,81 +1,81 @@
 {
-  "Base :: Code Separator": {
+  "Base | Code Separator": {
     "scope": "javascript",
     "prefix": "sep",
     "body": "// ------------------------------------------------------"
   },
-  "Base :: Code Separator 2": {
+  "Base | Code Separator 2": {
     "scope": "javascript",
     "prefix": "sep2",
     "body": "// ======================================================"
   },
-  "Base :: Console Log": {
+  "Base | Console Log": {
     "scope": "javascript",
-    "prefix": "cl",
+    "prefix": "clog",
     "body": "console.log($1);$0"
   },
-  "Base :: Import": {
+  "Base | Import": {
     "scope": "javascript",
     "prefix": "impf",
     "body": "import { $2 } from \"$1\";$0"
   },
-  "Base :: Import Component to Connect it": {
+  "Base | Import Component to Connect it": {
     "scope": "javascript",
     "prefix": "impc",
     "body": "import ${1:Name}Component from \"./components/${1:Name}\";$0"
   },
-  "Base :: Import Default": {
+  "Base | Import Default": {
     "scope": "javascript",
     "prefix": "impd",
     "body": "import ${2:Module} from \"$1\";$0"
   },
-  "Base :: Export": {
+  "Base | Export": {
     "scope": "javascript",
     "prefix": "ex",
     "body": "export const ${1:name} = $0;"
   },
-  "Base :: Export Default": {
+  "Base | Export Default": {
     "scope": "javascript",
     "prefix": "exd",
     "body": "export default $0;"
   },
-  "Base :: Export Default As": {
+  "Base | Export Default As": {
     "scope": "javascript",
     "prefix": "exda",
     "body": "export { default as ${2:Component} } from \"$1\";$0"
   },
-  "Base :: Export Connected Component": {
+  "Base | Export Connected Component": {
     "scope": "javascript",
     "prefix": "exc",
     "body": "export const ${1:Name} = connect(\n\tmapStateToProps, \n\tmapDispatchToProps\n)(${1:Name}Component);$0"
   },
-  "Base :: Class Constructor": {
+  "Base | Class Constructor": {
     "scope": "javascript",
     "prefix": "con",
     "body": "constructor(props) {\n\tsuper(props);\n\t$0\n}\n",
     "description": "Adds a default constructor for the class that contains props as arguments"
   },
-  "Base :: Arrow Function": {
+  "Base | Arrow Function": {
     "scope": "javascript",
     "prefix": "fn",
     "body": "($1) => $0"
   },
-  "Base :: Arrow Function (with body)": {
+  "Base | Arrow Function (with body)": {
     "scope": "javascript",
     "prefix": "fnb",
     "body": "($1) => {$0}"
   },
-  "Base :: Arrow Function (returns object)": {
+  "Base | Arrow Function (returns object)": {
     "scope": "javascript",
     "prefix": "fno",
     "body": "($1) => ({$0})"
   },
-  "Base :: Arrow Function (dispatch)": {
+  "Base | Arrow Function (dispatch)": {
     "scope": "javascript",
     "prefix": "fnd",
     "body": "($1) => dispatch(${2:action}($3))$0"
   },
-  "Base :: For Loop": {
+  "Base | For Loop": {
     "scope": "javascript",
     "prefix": "forloop",
     "body": [
@@ -83,78 +83,78 @@
       "\tconst ${4:element} = ${5:array}[$1];\n}"
     ]
   },
-  "React :: Component Props": {
+  "React | Component Props": {
     "scope": "javascript",
     "prefix": "props",
     "body": "this.props.$0",
     "description": "Access component's props"
   },
-  "React :: Component State": {
+  "React | Component State": {
     "scope": "javascript",
     "prefix": "state",
     "body": "this.state.$0",
     "description": "Access component's state"
   },
-  "React :: Destructure From Props": {
+  "React | Destructure From Props": {
     "scope": "javascript",
     "prefix": "dfp",
     "body": "const { $1 } = this.props;$0"
   },
-  "React :: Destructure From State": {
+  "React | Destructure From State": {
     "scope": "javascript",
     "prefix": "dfs",
     "body": "const { $1 } = this.state;$0"
   },
-  "React :: Destructure From Object": {
+  "React | Destructure From Object": {
     "scope": "javascript",
     "prefix": "dfo",
     "body": "const { $2 } = $1;$0"
   },
-  "React :: Component Proptypes": {
+  "React | Component Proptypes": {
     "scope": "javascript",
     "prefix": "cpt",
     "body": ["${1:${TM_FILENAME_BASE}}.propTypes = {$0};"]
   },
-  "React :: Component Default Props ": {
+  "React | Component Default Props ": {
     "scope": "javascript",
     "prefix": "cdp",
     "body": ["${1:${TM_FILENAME_BASE}}.defaultProps = {$0};"]
   },
-  "React :: Component Did Mount": {
+  "React | Component Did Mount": {
     "scope": "javascript",
     "prefix": "cdm",
     "body": "componentDidMount() {\n\t$0\n}\n",
     "description": "Invoked once, only on the client (not on the server), immediately after the initial rendering occurs."
   },
-  "React :: Should Component Update": {
+  "React | Should Component Update": {
     "scope": "javascript",
     "prefix": "scu",
     "body": "shouldComponentUpdate(nextProps, nextState) {\n\t$0\n}\n",
     "description": "Invoked before rendering when new props or state are being received. "
   },
-  "React :: Component Did Update": {
+  "React | Component Did Update": {
     "scope": "javascript",
     "prefix": "cdup",
     "body": "componentDidUpdate(prevProps, prevState) {\n\t$0\n}\n",
     "description": "Invoked immediately after the component's updates are flushed to the DOM."
   },
-  "React :: Component Will Unmount": {
+  "React | Component Will Unmount": {
     "scope": "javascript",
     "prefix": "cwun",
     "body": "componentWillUnmount() {\n\t$0\n}\n",
     "description": "Invoked immediately before a component is unmounted from the DOM."
   },
-  "Redux :: Dispatch": {
+  "Redux | Dispatch": {
     "scope": "javascript",
     "prefix": "dispatch",
     "body": "dispatch(${1:action}($0))"
   },
-  "Redux :: Map State to Props": {
+  "Redux | Map State to Props": {
     "scope": "javascript",
     "prefix": "maps",
     "body": "const mapStateToProps = ({ $1 }) => ({$0});"
   },
-  "Redux :: Map Dispatch to Props": {
+  "Redux | Map Dispatch to Props": {
     "scope": "javascript",
     "prefix": "mapd",
     "body": "const mapDispatchToProps = dispatch => ({$0});"
@@ -339,18 +339,20 @@
     "body": "PropTypes.shape({\n\t$0\n}).isRequired,",
     "description": "An object taking on a particular shape required"
   },
-  "React :: Get Component Modifiers": {
+  "React | Get Component Class Names": {
     "scope": "javascript",
-    "prefix": "cgm",
+    "prefix": "gccn",
     "body": [
-      "getComponentModifiers() {",
+      "getComponentClassNames() {",
       "\tconst { $2 } = this.${1:props};",
-      "\tlet modifiers = ${0:\"\"};",
-      "\treturn modifiers;",
-      "}"
+      "\treturn classNamesHelper(",
+      "\t\t${3:\"className\" | [\"className\", condition]},",
+      "\t\t${4:...}",
+      "\t);",
+      "}$0"
     ]
   },
-  "Template :: React Component": {
+  "Template | React Component": {
     "scope": "javascript",
     "prefix": "t_component",
     "body": [
@@ -358,13 +360,15 @@
       "import PropTypes from \"prop-types\";\n",
       "class ${1:${TM_FILENAME_BASE}} extends Component {",
       "\trender() {\n\t\treturn (",
-      "\t\t\t<${4:div} className=\"${3:c}-$2\">\n\t\t\t\t$0\n\t\t\t</${4:div}>",
+      "\t\t\t<${5:div} className=\"${3:c}-${4:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\">",
+      "\t\t\t\t$0",
+      "\t\t\t</${5:div}>",
       "\t\t);\n\t}\n}\n",
       "${1:${TM_FILENAME_BASE}}.propTypes = {};\n",
       "export default ${1:${TM_FILENAME_BASE}};\n"
     ]
   },
-  "Template :: Redux Container": {
+  "Template | Redux Container": {
     "scope": "javascript",
     "prefix": "t_container",
     "body": [
@@ -377,7 +381,7 @@
       ")(${1:Component});\n"
     ]
   },
-  "Template :: Redux Action": {
+  "Template | Redux Action": {
     "scope": "javascript",
     "prefix": "t_action",
     "body": [
@@ -391,7 +395,7 @@
       "export const ${1:action} = () => ({$0});\n"
     ]
   },
-  "Template :: Redux Action (Module)": {
+  "Template | Redux Action (Module)": {
     "scope": "javascript",
     "prefix": "t_action_module",
     "body": [
@@ -405,7 +409,7 @@
       "export const ${2:action} = () => ({$0});\n"
     ]
   },
-  "Template :: Redux Reducer": {
+  "Template | Redux Reducer": {
     "scope": "javascript",
     "prefix": "t_reducer",
     "body": [
@@ -421,7 +425,7 @@
       "\t\tdefault:\n\t\t\treturn state;\n\t}\n};\n"
     ]
   },
-  "Template :: Redux Reducer (Module)": {
+  "Template | Redux Reducer (Module)": {
     "scope": "javascript",
     "prefix": "t_reducer_module",
     "body": [

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+   <path fill="#ffffff" stroke="#ffffff" stroke-width="1" opacity="1" d="M 20 180 L 20 20 L 130 100" transform="matrix(1 0 0 1 0 0)"></path>
+   <text transform="matrix(1 0 0 1 150 0)" width="45" height="130" font-family="Arial" font-size="90" font-style="regular" text-align="left" text-anchor="start" fill="#ffffff" stroke="#ffffff" stroke-width="1" >
+      <tspan x="0" y="80" newline="">
+         <![CDATA[1]]>
+      </tspan>
+   </text>
+</svg>

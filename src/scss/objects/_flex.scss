@@ -16,6 +16,9 @@
   &.-center-v {
     align-items: center;
   }
+  &.-space-between {
+    justify-content: space-between;
+  }
 
   // Direction
   &.-col {

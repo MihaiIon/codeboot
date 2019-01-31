@@ -1,45 +1,57 @@
+// ======================================================
+// Helpers / Class Names Helper
+// ======================================================
+
 /*eslint prefer-rest-params:0 */
 
 /**
- * Helper to create conditional classes.
- *
- *
- * Accepts an undefinite list of arguments.
- *
- *
- * Strings are added to the class.
- *
- *
- * Objects are of shape  {
- *  classNameString : boolean
- * }
- * classNameString is only added to the class if boolean is true.
- *
- *
+ * Returns "true" if the object is a string.
+ * @param {*} obj JavaScript object.
  */
-function classHelper() {
-  const classNamesSet = new Set([]);
-  const args = Array.prototype.slice.call(arguments);
-  args.map(arg => {
-    switch (typeof arg) {
-      case "string":
-        classNamesSet.add(arg);
-        break;
-      case "object":
-        Object.keys(arg).map(key => {
-          if (arg[key] === true) {
-            classNamesSet.add(key);
-          }
-          return true;
-        });
-        break;
-      default:
-        break;
-    }
-    return true;
-  });
-  const classNames = [...classNamesSet].join(" ").trim();
-  return classNames;
-}
+export const isString = obj => typeof obj === "string" || obj instanceof String;
 
-export default classHelper;
+/**
+ * Returns the first element if the second element is "true", else "null".
+ * @param {[string, boolean]} array
+ */
+const arrayHelper = array => {
+  if (array.length === 2 && isString(array[0]))
+    return typeof array[1] === "boolean" && array[1] ? array[0] : null;
+  if (array.length > 2 && isString(array[0]) && isString(array[1]) && typeof array[2] === "boolean")
+    return array[2] ? array[0] : array[1];
+  return null;
+};
+
+/**
+ * Provides a string of classes based on the values of its arguments. This function
+ * can take an unlimited number of arguments.
+ *
+ * Here is an example of a simple use case:
+ *
+ * // Import
+ * import classNamesHelper from "path/to/classNamesHelper";
+ *
+ * // Usage
+ * classNamesHelper(
+ *   "c-component",
+ *   "o-layout",
+ *   ["-small", isSmall],
+ *   ["-red", isRed],
+ *   "-shrinked"
+ * );
+ *
+ * @param {string | [string, boolean]} arguments
+ */
+export default function() {
+  const args = Array.prototype.slice.call(arguments);
+  return args.length > 0
+    ? args
+        .map(arg => {
+          if (arg instanceof Array) return arrayHelper(arg);
+          if (isString(arg) && arg.length > 0) return arg;
+          return null;
+        })
+        .filter(el => el !== null)
+        .join(" ")
+    : "";
+}

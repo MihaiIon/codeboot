@@ -41,17 +41,3 @@ h2,
 
   font-size: rem($font-size-h2);
 }
-
-h3,
-.o-h3 {
-  @extend .o-h;
-
-  font-size: rem($font-size-h3);
-}
-
-h4,
-.o-h4 {
-  @extend .o-h;
-
-  font-size: rem($font-size-h4);
-}
