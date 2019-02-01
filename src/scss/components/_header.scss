@@ -15,7 +15,7 @@
 }
 
 .c-header_separator {
-  width: 2px;
+  width: rem($header--separator-width);
   background-color: $novice-color-dark;
 }
 
