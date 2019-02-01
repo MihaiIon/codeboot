@@ -5,6 +5,9 @@
 .c-header {
   position: relative;
   height: rem($header--height);
+
+  display: flex;
+  justify-content: space-between;
   background-color: $novice-color;
   .-default & {
     background-color: $default-color;
@@ -56,6 +59,11 @@
 
 // Navigation
 // ======================================================
+
+.c-header_separator,
+.c-header_nav {
+  height: 100%;
+}
 
 .c-header_item {
   margin-right: rem($unit / 2);

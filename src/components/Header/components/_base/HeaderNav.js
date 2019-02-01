@@ -10,7 +10,7 @@ class HeaderNav extends Component {
 
   getComponentClassNames() {
     const { linked } = this.props;
-    return classNamesHelper("c-header_nav", "o-flex", ["-linked", linked]);
+    return classNamesHelper("c-header_nav", "o-layout -flex -middle", ["-linked", linked]);
   }
 
   // ------------------------------------------------------
