@@ -2,16 +2,12 @@
 // Components / Header
 // ======================================================
 
-$header--height: 65px;
-$header--logo-size: $font-size * 1.65;
-$header--btn-size: $unit * 2.5;
-$header--btn-border-radius: 6px;
-$header--logo-margin: $unit * 1.3;
-
 .c-header {
   position: relative;
   height: rem($header--height);
-  padding: 0 rem($header--logo-margin * 2);
+
+  display: flex;
+  justify-content: space-between;
   background-color: $novice-color;
   .-default & {
     background-color: $default-color;
@@ -19,18 +15,28 @@ $header--logo-margin: $unit * 1.3;
 }
 
 .c-header_separator {
-  width: 2px;
-  margin: 0 rem($header--logo-margin);
+  width: rem($header--separator-width);
   background-color: $novice-color-dark;
 }
 
 // Logo
 // ======================================================
 
+.c-header_separator,
+.c-header_logo {
+  margin: 0 rem($wrapper--padding-half);
+  @media (max-width: $to-medium) {
+    margin: 0 rem($wrapper--padding-half / 2);
+  }
+  @media (max-width: $to-tiny) {
+    margin: 0 rem($wrapper--padding-half / 3);
+  }
+}
+
 .c-header_logo {
   color: $white;
+  margin-left: 0;
   line-height: rem($header--logo-size * 2);
-  margin-right: rem($header--logo-margin);
 }
 
 .c-header_logo_code,
@@ -53,6 +59,11 @@ $header--logo-margin: $unit * 1.3;
 
 // Navigation
 // ======================================================
+
+.c-header_separator,
+.c-header_nav {
+  height: 100%;
+}
 
 .c-header_item {
   margin-right: rem($unit / 2);

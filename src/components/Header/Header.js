@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 // Components
 import { AnimatedComponent } from "../../components-anim";
@@ -16,15 +17,22 @@ import Controls from "./components/Controls";
 import classNamesHelper from "../../_helpers/classNamesHelper";
 
 class Header extends Component {
+  // ------------------------------------------------------
+  // Method
+
+  getComponentClassNames() {
+    const { tmp } = this.props;
+    return classNamesHelper("c-header", "o-wrapper", ["-tmp", tmp]);
+  }
+
+  // ------------------------------------------------------
+  // Render
   render() {
     return (
-      <AnimatedComponent
-        wrapper="header"
-        className={classNamesHelper("c-header", "o-flex -center-v -space-between")}
-      >
+      <AnimatedComponent wrapper="header" className={this.getComponentClassNames()}>
         <Navigation>
           <Logo />
-          <div className="c-header_separator" />
+          <div className="c-header_separator o-layout_item" />
           <List>
             <NewFile />
             {/* <DownloadFile /> */}
@@ -42,5 +50,13 @@ class Header extends Component {
     );
   }
 }
+
+Header.defaultProps = {
+  tmp: false
+};
+
+Header.propTypes = {
+  tmp: PropTypes.bool
+};
 
 export default Header;

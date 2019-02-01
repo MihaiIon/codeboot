@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 class HeaderList extends Component {
   render() {
     const { children } = this.props;
-    return <ul className="c-header_list o-layout -middle">{children}</ul>;
+    return (
+      <div className="o-layout_item">
+        <ul className="c-header_list o-layout -middle">{children}</ul>
+      </div>
+    );
   }
 }
 

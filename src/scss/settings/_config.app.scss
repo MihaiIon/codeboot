@@ -5,5 +5,21 @@
 // App
 // ======================================================
 
+$wrapper--padding: 50px;
+$wrapper--padding-half: $wrapper--padding / 2;
+
 // Header
 // ======================================================
+
+$header--height: 55px;
+$header--logo-size: 20px;
+$header--separator-width: 8px;
+
+$header--btn-size: $unit * 2;
+$header--btn-border-radius: 4px;
+
+// Footer
+// ======================================================
+
+$footer--height: 36px;
+$footer--item-margin: $unit / 3;
