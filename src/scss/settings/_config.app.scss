@@ -5,11 +5,13 @@
 // App
 // ======================================================
 
+$wrapper--padding: 50px;
+$wrapper--padding-half: $wrapper--padding / 2;
+
 // Header
 // ======================================================
 
 $header--height: 55px;
-$header--logo-size: $font-size * 1.4;
+$header--logo-size: 20px;
 $header--btn-size: $unit * 2;
 $header--btn-border-radius: 6px;
-$header--logo-margin: $unit * 1.3;

@@ -20,7 +20,7 @@ class Header extends Component {
     return (
       <AnimatedComponent
         wrapper="header"
-        className={classNamesHelper("c-header", "o-flex -center-v -space-between")}
+        className={classNamesHelper("c-header", "o-wrapper", "o-flex -center-v -space-between")}
       >
         <Navigation>
           <Logo />

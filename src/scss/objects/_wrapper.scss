@@ -3,22 +3,11 @@
 // ==========================================================================
 
 .o-wrapper {
-  padding-right: rem(4 * $unit-large);
-  padding-left: rem(4 * $unit-large);
-  @media (max-width: $to-big) {
-    padding-right: rem(3.2 * $unit-large);
-    padding-left: rem(3.2 * $unit-large);
-  }
-  @media (max-width: $to-large) {
-    padding-right: rem(3.6 * $unit-large);
-    padding-left: rem(3.6 * $unit-large);
-  }
+  padding: 0 rem($wrapper--padding);
   @media (max-width: $to-medium) {
-    padding-right: rem(2 * $unit-large);
-    padding-left: rem(2 * $unit-large);
+    padding: 0 rem($wrapper--padding / 2);
   }
   @media (max-width: $to-tiny) {
-    padding-right: rem($unit-large);
-    padding-left: rem($unit-large);
+    padding: 0 rem($wrapper--padding / 3);
   }
 }
