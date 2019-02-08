@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 // Styles
 import "./scss/main.scss";
+import "codemirror/theme/eclipse.css";
+import "codemirror/lib/codemirror.css";
 
 // Components
 import Root from "./components/Root";
