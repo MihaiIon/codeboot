@@ -5,12 +5,16 @@ import PropTypes from "prop-types";
 import Footer from "../Footer";
 import Header from "../Header";
 import { Overlay } from "../../components-ui";
+import CodeEditor from "../CodeEditor";
 
 class App extends Component {
   render() {
     return (
       <div id="js-app" className="c-app">
         <Header />
+        <main>
+          <CodeEditor />
+        </main>
         <Footer />
       </div>
     );
