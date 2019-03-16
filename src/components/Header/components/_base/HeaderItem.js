@@ -9,8 +9,8 @@ class HeaderItem extends Component {
   // Methods
 
   getComponentClassNames() {
-    const { green } = this.props;
-    return classNamesHelper("c-header_btn", [("-green", green)]);
+    const { transparent, green } = this.props;
+    return classNamesHelper("c-header_btn", ["-green", green], ["-transparent", transparent]);
   }
 
   // ------------------------------------------------------
@@ -20,7 +20,7 @@ class HeaderItem extends Component {
     const { children } = this.props;
     return (
       <li className="c-header_item o-layout_item">
-        <button type="button" className="c-header_btn">
+        <button type="button" className={this.getComponentClassNames()}>
           {children}
         </button>
       </li>
@@ -29,11 +29,13 @@ class HeaderItem extends Component {
 }
 
 HeaderItem.defaultProps = {
-  green: false
+  green: false,
+  transparent: false
 };
 
 HeaderItem.propTypes = {
   green: PropTypes.bool,
+  transparent: PropTypes.bool,
   children: PropTypes.node.isRequired
 };
 
