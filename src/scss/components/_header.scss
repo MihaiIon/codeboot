@@ -2,9 +2,12 @@
 // Components / Header
 // ======================================================
 
+$header--padding: $unit * 2;
+
 .c-header {
   position: relative;
   height: rem($header--height);
+  padding: 0 rem($header--padding);
 
   display: flex;
   justify-content: space-between;

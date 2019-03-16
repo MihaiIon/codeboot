@@ -6,7 +6,7 @@
 // =============================================================================
 $white: #ffffff;
 $black: #000000;
-$gray: rgb(216, 225, 231);
+$gray: rgb(182, 182, 182);
 $gray-light: rgb(232, 238, 242);
 $gray-dark: #383838;
 $gray-darker: darken($gray-dark, 10%);
@@ -19,7 +19,7 @@ $novice-color-dark: darken($novice-color, 6%);
 $novice-color-light: lighten($novice-color, 15%);
 $default-color: #e2653f;
 
-$green: #32cd70;
+$success: #32cd70;
 $warning: #fbc146;
 $danger: rgb(226, 81, 98);
 

@@ -10,13 +10,13 @@
 // 2. Set the default `background-color` for the entire project.
 // 3. TODO
 // 4. TODO
-// 5. Ensure the page always fills at least the entire height of the viewport.
+// 5. Ensure the page always fills the entire height of the viewport.
 //
 html {
   width: 100vw;
   min-width: 550px; /* [3] */
   overflow: hidden;
-  min-height: 100%; /* [5] */
+  height: 100vh; /* [5] */
   color: $color;
   font-family: $font-family;
   line-height: $line-height; /* [1] */
@@ -47,4 +47,12 @@ ul {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+
+main {
+  position: absolute;
+  top: rem($header--height);
+  bottom: rem($footer--height);
+  right: 0;
+  left: 0;
 }
