@@ -5,7 +5,7 @@
 // App
 // ======================================================
 
-$wrapper--padding: 50px;
+$wrapper--padding: 25px;
 $wrapper--padding-half: $wrapper--padding / 2;
 
 // Header
@@ -17,6 +17,18 @@ $header--separator-width: 8px;
 
 $header--btn-size: $unit * 2;
 $header--btn-border-radius: 4px;
+
+// Code Editor
+// ======================================================
+
+$code-editor--font-size: 20px;
+$code-editor--navigation-height: 48px;
+$code-editor--tab-padding: $unit / 3;
+$code-editor--tab-spacing: $unit / 3;
+$code-editor--tab-font-size: $font-size * 1.2;
+$code-editor--border-radius: 4px;
+$code-editor--tab-icon-size: 22px;
+$code-editor--add-btn-size: 32px;
 
 // Footer
 // ======================================================
