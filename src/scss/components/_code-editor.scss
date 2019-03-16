@@ -45,9 +45,11 @@
   }
 
   background-color: rgba($color: $white, $alpha: 0.5);
+  &:hover,
   &.-active {
     background-color: $white;
   }
+  transition: background-color $speed;
 
   cursor: pointer;
   font-weight: $light;
