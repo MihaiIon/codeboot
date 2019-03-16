@@ -1,0 +1,111 @@
+// ======================================================
+// Components / Header
+// ======================================================
+
+.c-header {
+  position: relative;
+  height: rem($header--height);
+  padding: 0 rem($header--padding);
+
+  display: flex;
+  justify-content: space-between;
+  background-color: $novice-color;
+  .-default & {
+    background-color: $default-color;
+  }
+}
+
+.c-header_separator {
+  width: rem($header--separator-width);
+  background-color: darken($novice-color, 2%);
+}
+
+// Logo
+// ======================================================
+
+.c-header_separator,
+.c-header_logo {
+  margin: 0 rem($wrapper--padding-half);
+  @media (max-width: $to-medium) {
+    margin: 0 rem($wrapper--padding-half / 2);
+  }
+  @media (max-width: $to-tiny) {
+    margin: 0 rem($wrapper--padding-half / 3);
+  }
+}
+
+.c-header_logo {
+  color: $white;
+  margin-left: 0;
+  line-height: rem($header--logo-size * 2);
+}
+
+.c-header_logo_code,
+.c-header_logo_boot {
+  font-size: rem($header--logo-size);
+}
+
+.c-header_logo_boot {
+  font-weight: $bold;
+}
+
+.c-header_logo_version {
+  font-weight: 200;
+  margin-left: rem($unit / 4);
+
+  text-transform: uppercase;
+  font-size: rem($header--logo-size / 1.65);
+  color: rgba($color: $white, $alpha: 0.65);
+}
+
+// Navigation
+// ======================================================
+
+.c-header_separator,
+.c-header_nav {
+  height: 100%;
+}
+
+.c-header_item {
+  .c-header_nav.-linked & {
+    overflow: hidden;
+    &:last-child {
+      margin-right: 0;
+      margin-left: -0.2px;
+    }
+  }
+}
+
+.c-header_item,
+.c-header_btn {
+  width: rem($header--btn-size);
+}
+
+.c-header_btn {
+  height: rem($header--btn-size);
+  box-sizing: border-box;
+  padding: rem($unit / 2);
+
+  border-radius: $header--btn-border-radius;
+  border: solid 1px rgba($color: $novice-color-dark, $alpha: 0.5);
+  background-color: $novice-color-light;
+  &.-transparent {
+    background-color: transparent;
+  }
+  &:hover {
+    background-color: $novice-color-dark;
+  }
+  transition: background-color $speed / 1.5;
+
+  .c-header_nav.-linked & {
+    border-radius: 0;
+  }
+  .c-header_nav.-linked .c-header_item:first-child & {
+    border-top-left-radius: $header--btn-border-radius;
+    border-bottom-left-radius: $header--btn-border-radius;
+  }
+  .c-header_nav.-linked .c-header_item:last-child & {
+    border-top-right-radius: $header--btn-border-radius;
+    border-bottom-right-radius: $header--btn-border-radius;
+  }
+}

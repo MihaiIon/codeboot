@@ -1,0 +1,13 @@
+// ==========================================================================
+// Objects / Wrapper
+// ==========================================================================
+
+.o-wrapper {
+  padding: 0 rem($wrapper--padding);
+  @media (max-width: $to-medium) {
+    padding: 0 rem($wrapper--padding / 2);
+  }
+  @media (max-width: $to-tiny) {
+    padding: 0 rem($wrapper--padding / 3);
+  }
+}

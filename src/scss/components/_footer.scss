@@ -1,0 +1,52 @@
+// ======================================================
+// Components / Footer
+// ======================================================
+
+.c-footer {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  height: rem($footer--height);
+  background-color: $gray-dark;
+}
+
+// Navigation
+// ======================================================
+
+.c-footer_list {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.c-footer_item {
+  display: inline-block;
+  margin-right: rem($footer--item-margin);
+}
+
+.c-footer_btn {
+  border-radius: 4px;
+  padding: rem($unit/5) rem($unit / 2);
+  cursor: pointer;
+
+  color: $white;
+  font-weight: 200;
+  font-size: rem($font-size * 0.85);
+  background-color: $gray-darker;
+  transition: background-color $speed;
+
+  &:hover,
+  &:focus,
+  &.-active {
+    background-color: $novice-color;
+    .-default & {
+      background-color: $default-color;
+    }
+  }
+}

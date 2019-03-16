@@ -1,0 +1,110 @@
+// ======================================================
+// Components / Code Editor
+// ======================================================
+
+.c-code-editor {
+  height: 100%;
+  position: relative;
+}
+
+.c-code-editor_nav,
+.c-code-editor_tool {
+  z-index: 1;
+  position: absolute;
+}
+
+.c-code-editor_tool {
+  font-size: rem($code-editor--font-size);
+}
+
+// Navigation
+// ======================================================
+
+.c-code-editor_nav {
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: rem($code-editor--navigation-height);
+  overflow: hidden;
+
+  padding-top: rem($unit / 3);
+  background-color: $gray-light;
+}
+
+.c-code-editor_tabs-list,
+.c-code-editor_add-btn {
+  display: inline-block;
+}
+
+.c-code-editor_tab {
+  display: inline-block;
+  padding: rem($code-editor--tab-padding) rem($code-editor--tab-padding * 1.25);
+  &:not(:last-child) {
+    margin-right: rem($code-editor--tab-spacing);
+  }
+
+  background-color: rgba($color: $white, $alpha: 0.5);
+  &:hover,
+  &.-active {
+    background-color: $white;
+  }
+  transition: background-color $speed;
+
+  cursor: pointer;
+  font-weight: $light;
+  border-top-left-radius: rem($code-editor--border-radius);
+  border-top-right-radius: rem($code-editor--border-radius);
+}
+
+.c-code-editor_tab_name,
+.c-code-editor_tab_close-btn {
+  display: inline-block;
+}
+
+.c-code-editor_tab_name {
+  font-size: rem($code-editor--tab-font-size);
+  margin-right: rem($unit / 2);
+  color: rgba($color: $black, $alpha: 0.85);
+  .c-code-editor_tab.-active & {
+    color: $black;
+  }
+}
+
+.c-code-editor_tab_icon {
+  width: rem($code-editor--tab-icon-size);
+  height: rem($code-editor--tab-icon-size);
+  color: $gray;
+  transition: color $speed;
+  &:hover {
+    color: $danger;
+  }
+}
+
+.c-code-editor_add-btn {
+  width: rem($code-editor--add-btn-size);
+  height: rem($code-editor--add-btn-size);
+  margin-left: rem($unit / 2);
+  margin-bottom: rem($unit / 4);
+
+  color: white;
+  border-radius: 4px;
+  background-color: lighten($gray, 10%);
+  &:hover {
+    background-color: $success;
+  }
+  transition: background-color $speed;
+}
+
+// CodeMirror
+// ======================================================
+
+.c-code-editor_tool {
+  top: rem($code-editor--navigation-height);
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  padding-top: rem($unit);
+  padding-bottom: rem($unit);
+}
