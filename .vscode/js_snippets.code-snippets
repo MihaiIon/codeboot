@@ -9,20 +9,10 @@
     "prefix": "sep2",
     "body": "// ======================================================"
   },
-  "Base | Console Log": {
-    "scope": "javascript",
-    "prefix": "clog",
-    "body": "console.log($1);$0"
-  },
   "Base | Import": {
     "scope": "javascript",
-    "prefix": "impf",
+    "prefix": "imp",
     "body": "import { $2 } from \"$1\";$0"
-  },
-  "Base | Import Component to Connect it": {
-    "scope": "javascript",
-    "prefix": "impc",
-    "body": "import ${1:Name}Component from \"./components/${1:Name}\";$0"
   },
   "Base | Import Default": {
     "scope": "javascript",
@@ -31,29 +21,18 @@
   },
   "Base | Export": {
     "scope": "javascript",
-    "prefix": "ex",
+    "prefix": "exp",
     "body": "export const ${1:name} = $0;"
   },
   "Base | Export Default": {
     "scope": "javascript",
-    "prefix": "exd",
+    "prefix": "expd",
     "body": "export default $0;"
   },
   "Base | Export Default As": {
     "scope": "javascript",
-    "prefix": "exda",
+    "prefix": "expda",
     "body": "export { default as ${2:Component} } from \"$1\";$0"
-  },
-  "Base | Export Connected Component": {
-    "scope": "javascript",
-    "prefix": "exc",
-    "body": "export const ${1:Name} = connect(\n\tmapStateToProps, \n\tmapDispatchToProps\n)(${1:Name}Component);$0"
-  },
-  "Base | Class Constructor": {
-    "scope": "javascript",
-    "prefix": "con",
-    "body": "constructor(props) {\n\tsuper(props);\n\t$0\n}\n",
-    "description": "Adds a default constructor for the class that contains props as arguments"
   },
   "Base | Arrow Function": {
     "scope": "javascript",
@@ -70,11 +49,6 @@
     "prefix": "fno",
     "body": "($1) => ({$0})"
   },
-  "Base | Arrow Function (dispatch)": {
-    "scope": "javascript",
-    "prefix": "fnd",
-    "body": "($1) => dispatch(${2:action}($3))$0"
-  },
   "Base | For Loop": {
     "scope": "javascript",
     "prefix": "forloop",
@@ -82,18 +56,6 @@
       "for (let ${1:i} = ${2:0}; $1 < ${3:length}; $1 += 1) {",
       "\tconst ${4:element} = ${5:array}[$1];\n}"
     ]
-  },
-  "React | Component Props": {
-    "scope": "javascript",
-    "prefix": "props",
-    "body": "this.props.$0",
-    "description": "Access component's props"
-  },
-  "React | Component State": {
-    "scope": "javascript",
-    "prefix": "state",
-    "body": "this.state.$0",
-    "description": "Access component's state"
   },
   "React | Destructure From Props": {
     "scope": "javascript",
@@ -339,106 +301,23 @@
     "body": "PropTypes.shape({\n\t$0\n}).isRequired,",
     "description": "An object taking on a particular shape required"
   },
-  "React | Get Component Class Names": {
+  "React | Get Component Modifiers": {
     "scope": "javascript",
     "prefix": "gccn",
-    "body": [
-      "getComponentClassNames() {",
-      "\tconst { $2 } = this.${1:props};",
-      "\treturn classNamesHelper(",
-      "\t\t${3:\"className\" | [\"className\", condition]},",
-      "\t\t${4:...}",
-      "\t);",
-      "}$0"
-    ]
+    "body": "getComponentClassNames() {\n\t$0\n}"
   },
   "Template | React Component": {
     "scope": "javascript",
     "prefix": "t_component",
     "body": [
-      "import React, { Component } from \"react\";",
+      "import React, { useState, useContext } from \"react\";",
       "import PropTypes from \"prop-types\";\n",
-      "class ${1:${TM_FILENAME_BASE}} extends Component {",
-      "\trender() {\n\t\treturn (",
-      "\t\t\t<${5:div} className=\"${3:c}-${4:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}\">",
-      "\t\t\t\t$0",
-      "\t\t\t</${5:div}>",
-      "\t\t);\n\t}\n}\n",
+      "function ${1:${TM_FILENAME_BASE}} (props) {",
+      "\treturn (",
+      "\t\t<${4:div} className=\"${3:c}-$2\">\n\t\t\t$0\n\t\t</${4:div}>",
+      "\t);\n}\n",
       "${1:${TM_FILENAME_BASE}}.propTypes = {};\n",
       "export default ${1:${TM_FILENAME_BASE}};\n"
-    ]
-  },
-  "Template | Redux Container": {
-    "scope": "javascript",
-    "prefix": "t_container",
-    "body": [
-      "import { connect } from \"react-redux\";\n",
-      "// Components",
-      "import ${1:Component} from \"./${1:Component}\";\n",
-      "const mapStateToProps = ({ $2 }) => ({$3});\n",
-      "const mapDispatchToProps = dispatch => ({$0});\n",
-      "export default connect(\n\tmapStateToProps,\n\tmapDispatchToProps",
-      ")(${1:Component});\n"
-    ]
-  },
-  "Template | Redux Action": {
-    "scope": "javascript",
-    "prefix": "t_action",
-    "body": [
-      "// ======================================================",
-      "// Actions / ${TM_FILENAME_BASE/([a-z])/${1:/upcase}/}",
-      "// ======================================================\n",
-      "// Constants",
-      "import { ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_ACTION_TYPES } from \"./actions\";\n",
-      "// Actions",
-      "// ======================================================\n",
-      "export const ${1:action} = () => ({$0});\n"
-    ]
-  },
-  "Template | Redux Action (Module)": {
-    "scope": "javascript",
-    "prefix": "t_action_module",
-    "body": [
-      "// ======================================================",
-      "// Modules / ${TM_DIRECTORY/(?:.*)modules\\W([a-zA-Z]*)(?:.*)/$1/} / Core / Actions",
-      "// ======================================================\n",
-      "// Constants",
-      "export const ACTION_TYPES = {\n\t$1\n};\n",
-      "// Actions",
-      "// ======================================================\n",
-      "export const ${2:action} = () => ({$0});\n"
-    ]
-  },
-  "Template | Redux Reducer": {
-    "scope": "javascript",
-    "prefix": "t_reducer",
-    "body": [
-      "// ======================================================",
-      "// Reducers / ${TM_FILENAME_BASE/([a-z]*)(?:.*)/${1:/capitalize}/}",
-      "// ======================================================\n",
-      "// Constants",
-      "import { ${TM_FILENAME_BASE/([a-z]*).*/${1:/upcase}/}_ACTION_TYPES } from \"../actions/actions\";\n",
-      "// Initial State",
-      "const initialState = {$0};\n",
-      "export default (state = initialState, action) => {",
-      "\tswitch (action.type) {",
-      "\t\tdefault:\n\t\t\treturn state;\n\t}\n};\n"
-    ]
-  },
-  "Template | Redux Reducer (Module)": {
-    "scope": "javascript",
-    "prefix": "t_reducer_module",
-    "body": [
-      "// ======================================================",
-      "// Modules / ${TM_DIRECTORY/(?:.*)modules\\W([a-zA-Z]*)(?:.*)/$1/} / Core / Reducer",
-      "// ======================================================\n",
-      "// Constants",
-      "import { ACTION_TYPES } from \"./actions\";\n",
-      "// Initial State",
-      "const initialState = {$0};\n",
-      "export default (state = initialState, action) => {",
-      "\tswitch (action.type) {",
-      "\t\tdefault:\n\t\t\treturn state;\n\t}\n};\n"
     ]
   }
 }
