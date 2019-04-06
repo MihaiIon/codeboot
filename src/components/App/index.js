@@ -1,16 +1,21 @@
-import { connect } from "react-redux";
+import React, { useState, useContext } from "react";
 
-// Impoer component
-import App from "./App";
+// Import components
+import Footer from "../Footer";
+import Header from "../Header";
+import { Overlay } from "../../components-ui";
+import Splitter from "../Splitter";
 
-// import Actions
-import * as appActions from "../../actions/app";
+function App() {
+  return (
+    <div id="js-app" className="c-app">
+      <Header />
+      <main>
+        <Splitter />
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
-const mapStateToProps = ({ app }) => ({});
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
