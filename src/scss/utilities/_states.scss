@@ -6,49 +6,49 @@
  * ARIA roles display visual cursor hints
  */
 [aria-busy="true"] {
-  cursor: progress;
+    cursor: progress;
 }
 
 [aria-controls] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 [aria-disabled] {
-  cursor: default;
+    cursor: default;
 }
 
 /**
-* Control visibility without affecting flow.
-*/
+ * Control visibility without affecting flow.
+ */
 
 .is-visible {
-  visibility: visible !important;
-  opacity: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .is-invisible {
-  visibility: hidden !important;
-  opacity: 0 !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 /**
-* Completely remove from the flow and screen readers.
-*/
+ * Completely remove from the flow and screen readers.
+ */
 
 .is-hidden {
-  @include u-hidden;
+    @include u-hidden;
 }
 
 @media not print {
-  .is-hidden\@screen {
-    @include u-hidden;
-  }
+    .is-hidden\@screen {
+        @include u-hidden;
+    }
 }
 
 @media print {
-  .is-hidden\@print {
-    @include u-hidden;
-  }
+    .is-hidden\@print {
+        @include u-hidden;
+    }
 }
 
 // .is-hidden\@to-large {

@@ -39,108 +39,81 @@
 //
 
 .o-layout {
-  @include o-layout;
+    @include o-layout;
 
-  // Gutter modifiers
-  &.-gutter {
-    margin-left: rem(-$unit-large);
-  }
-
-  &.-gutter\@from-medium {
-    @media (min-width: $from-medium) {
-      margin-left: rem(-$unit-large);
+    // Gutter modifiers
+    &.-gutter {
+        margin-left: rem(-$unit);
     }
-  }
 
-  &.-gutter-small {
-    margin-left: rem(-$unit);
-  }
-  &.-gutter-small\@to-medium {
-    @media (max-width: $to-medium) {
-      margin-left: rem(-$unit);
+    &.-gutter-small {
+        margin-left: rem(-$unit/2);
     }
-  }
 
-  // Horizontal aligment modifiers
-  &.-center {
-    text-align: center;
-  }
+    // Horizontal aligment modifiers
+    &.-center {
+        text-align: center;
+    }
 
-  &.-right {
-    text-align: right;
-  }
+    &.-right {
+        text-align: right;
+    }
 
-  &.-reverse {
-    direction: rtl;
+    &.-reverse {
+        direction: rtl;
+
+        &.-flex {
+            flex-direction: row-reverse;
+        }
+    }
 
     &.-flex {
-      flex-direction: row-reverse;
-    }
-  }
+         display: flex;
 
-  &.-flex {
-    display: flex;
-
-    &.-top {
-      align-items: flex-start;
+         &.-top {
+            align-items: flex-start;
+         }
+         &.-middle {
+            align-items: center;
+         }
+         &.-bottom {
+            align-items: flex-end;
+         }
     }
-    &.-middle {
-      align-items: center;
+    &.-stretch {
+        align-items: stretch;
     }
-    &.-bottom {
-      align-items: flex-end;
-    }
-  }
-  &.-stretch {
-    align-items: stretch;
-  }
 }
 
 .o-layout_item {
-  @include o-layout_item;
+    @include o-layout_item;
 
-  // Gutter modifiers
-  .o-layout.-gutter > & {
-    padding-left: rem($unit-large);
-  }
-
-  .o-layout.-gutter-small > & {
-    padding-left: rem($unit);
-  }
-
-  .o-layout.-gutter\@from-medium > & {
-    @media (min-width: $from-medium) {
-      padding-left: rem($unit-large);
+    // Gutter modifiers
+    .o-layout.-gutter > & {
+        padding-left: rem($unit);
     }
-  }
 
-  .o-layout.-gutter-small\@to-medium > & {
-    @media (max-width: $to-medium) {
-      padding-left: rem($unit);
+    .o-layout.-gutter-small > & {
+        padding-left: rem($unit/2);
     }
-  }
 
-  // Vertical alignment modifiers
-  .o-layout.-middle > & {
-    vertical-align: middle;
-  }
+    // Vertical alignment modifiers
+    .o-layout.-middle > & {
+        vertical-align: middle;
+    }
 
-  .o-layout.-bottom > & {
-    vertical-align: bottom;
-  }
+    .o-layout.-bottom > & {
+        vertical-align: bottom;
+    }
 
-  // Horizontal aligment modifiers
-  .o-layout.-center > &,
-  .o-layout.-right > &,
-  .o-layout.-reverse > & {
-    text-align: left;
-  }
+    // Horizontal aligment modifiers
+    .o-layout.-center > &,
+    .o-layout.-right > &,
+    .o-layout.-reverse > & {
+        text-align: left;
+    }
 
-  .o-layout.-reverse > & {
-    direction: ltr;
-  }
-}
-
-.o-layout_item.-center {
-  text-align: center;
+    .o-layout.-reverse > & {
+        direction: ltr;
+    }
 }

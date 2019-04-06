@@ -21,15 +21,15 @@
 // @output   `font-size`, `margin`, `padding`, `list-style`
 //
 @mixin o-layout($gutter: 0, $fix-whitespace: true) {
-  @include u-list-reset;
+    @include u-list-reset;
 
-  @if ($fix-whitespace) {
-    font-size: 0;
-  }
+    @if ($fix-whitespace) {
+        font-size: 0;
+    }
 
-  @if (type-of($gutter) == number) {
-    margin-left: -$gutter; // [1]
-  }
+    @if (type-of($gutter) == number) {
+        margin-left: -$gutter; // [1]
+    }
 }
 
 //
@@ -45,15 +45,15 @@
 //    http://csswizardry.com/2011/08/building-better-grid-systems/
 //
 @mixin o-layout_item($gutter: 0, $fix-whitespace: true) {
-  display: inline-block; // [2]
-  width: 100%; // [4]
-  vertical-align: top; // [3]
+    display: inline-block; // [2]
+    width: 100%; // [4]
+    vertical-align: top; // [3]
 
-  @if ($fix-whitespace) {
-    font-size: 1rem;
-  }
+    @if ($fix-whitespace) {
+        font-size: 1rem;
+    }
 
-  @if (type-of($gutter) == number) {
-    padding-left: $gutter; // [5]
-  }
+    @if (type-of($gutter) == number) {
+        padding-left: $gutter; // [5]
+    }
 }

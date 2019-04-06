@@ -5,25 +5,25 @@
 // Layout
 // ==========================================================================
 .u-clearfix {
-  @include u-clearfix;
+    @include u-clearfix;
 }
 
 // Decorative
 // =============================================================================
 .u-truncate {
-  @include u-truncate;
+    @include u-truncate;
 }
 
 //  Visibility / Display
 // ==========================================================================
 [hidden][aria-hidden="false"] {
-  position: absolute;
-  display: inherit;
-  clip: rect(0, 0, 0, 0);
+    position: absolute;
+    display: inherit;
+    clip: rect(0, 0, 0, 0);
 }
 
 [hidden][aria-hidden="false"]:focus {
-  clip: auto;
+    clip: auto;
 }
 
 // .u-block {
@@ -57,49 +57,25 @@
 // }
 
 /**
-* Completely remove from the flow but leave available to screen readers.
-*/
+ * Completely remove from the flow but leave available to screen readers.
+ */
 .u-screen-reader-text {
-  @include u-accessibly-hidden;
+    @include u-accessibly-hidden;
 }
 
 @media not print {
-  .u-screen-reader-text\@screen {
-    @include u-accessibly-hidden;
-  }
+    .u-screen-reader-text\@screen {
+        @include u-accessibly-hidden;
+    }
 }
 
 /*
-* Extends the `.screen-reader-text` class to allow the element
-* to be focusable when navigated to via the keyboard.
-*
-* @link https://www.drupal.org/node/897638
-* @todo Define styles when focused.
-*/
+ * Extends the `.screen-reader-text` class to allow the element
+ * to be focusable when navigated to via the keyboard.
+ *
+ * @link https://www.drupal.org/node/897638
+ * @todo Define styles when focused.
+ */
 .u-screen-reader-text.-focusable {
-  @include u-accessibly-focusable;
-}
-
-/* Hide elements */
-.-hidden {
-  display: none !important;
-}
-
-/* */
-.-no-outline {
-  outline: none !important;
-}
-
-/* */
-.-no-shadow {
-  box-shadow: none !important;
-}
-
-/* */
-.-no-border {
-  border: none !important;
-}
-
-.-full-height {
-  height: 100% !important;
+    @include u-accessibly-focusable;
 }
