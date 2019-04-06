@@ -4,8 +4,9 @@
 
 // Settings
 // ==========================================================================
-@import "settings/config.colors";
 @import "settings/config";
+@import "settings/config.app";
+@import "settings/config.colors";
 
 // ==========================================================================
 // Tools
@@ -43,10 +44,16 @@
 @import "objects/button";
 @import "objects/pjax";
 @import "objects/scroll";
+@import "objects/wrapper";
 
 // Components
 // ==========================================================================
 // @import "components/component";
+@import "components/app";
+@import "components/code-editor";
+@import "components/footer";
+@import "components/header";
+@import "components/splitter";
 
 // Utilities
 // ==========================================================================

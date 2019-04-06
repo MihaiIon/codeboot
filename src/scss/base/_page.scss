@@ -22,14 +22,10 @@ html {
   line-height: $line-height; /* [1] */
   background-color: $white; /* [2] */
 
-  @media (max-width: $to-medium) {
-    font-size: 12px;
-  }
-
-  @media (min-width: $from-medium) and (max-width: $to-big) {
+  font-size: 12px;
+  @media (min-width: $from-medium) {
     font-size: 13px;
   }
-
   @media (min-width: $from-big) {
     font-size: $font-size; /* [1] */
   }
