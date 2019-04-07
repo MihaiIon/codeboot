@@ -1,94 +1,102 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-
-// Helpers
-import classNamesHelper from "classnames-helper";
+import React from "react";
 
 // Components
 import Navigation from "./components/FooterNav";
 import Item from "./components/FooterItem";
 
-class Footer extends Component {
-  // ------------------------------------------------------
-  // Methods
+// Contexts
+import { AppContext } from "../App";
 
-  getComponentClassNames() {
-    const { tmp } = this.props;
-    return classNamesHelper("c-footer", "o-wrapper", ["-tmp", tmp]);
-  }
+// Constants
+import { APP_SPLITTER_LAYOUT, APP_SPLITTER_EDITOR_POSITION } from "../App/core/constants";
 
-  // ------------------------------------------------------
-  // Render
+// Helpers
+// ====================================================================================
 
-  renderSplitOptionsNavigation() {
-    const { isSplit, isCodeEditor } = this.props;
-    const { showAll, showOnlyConsole, showOnlyCodeEditor } = this.props;
-    return (
-      <Navigation>
-        <Item active={isSplit} action={showAll}>
-          Split
-        </Item>
-        <Item active={!isSplit && !isCodeEditor} action={showOnlyConsole}>
-          Console
-        </Item>
-        <Item active={!isSplit && isCodeEditor} action={showOnlyCodeEditor}>
-          Code Editor
-        </Item>
-      </Navigation>
-    );
-  }
+const isBoth = layout => layout === APP_SPLITTER_LAYOUT.BOTH;
+const isConsole = layout => layout === APP_SPLITTER_LAYOUT.CONSOLE_ONLY;
+const isEditor = layout => layout === APP_SPLITTER_LAYOUT.EDITOR_ONLY;
 
-  renderLayoutNavigation() {
-    const { isCodeEditorTop, isCodeEditorRight, isCodeEditorBottom, isCodeEditorLeft } = this.props;
-    const {
-      setCodeEditorTop,
-      setCodeEditorRight,
-      setCodeEditorBottom,
-      setCodeEditorLeft
-    } = this.props;
-    return (
-      <Navigation>
-        <Item active={isCodeEditorTop} action={setCodeEditorTop}>
-          Code Top
-        </Item>
-        <Item active={isCodeEditorLeft} action={setCodeEditorLeft}>
-          Code Left
-        </Item>
-        <Item active={isCodeEditorRight} action={setCodeEditorRight}>
-          Code Right
-        </Item>
-        <Item active={isCodeEditorBottom} action={setCodeEditorBottom}>
-          Code Bottom
-        </Item>
-      </Navigation>
-    );
-  }
+/**
+ * Renders the navigation the manages the layout of the application.
+ *
+ * @param {Number} layout TODO
+ * @param {Function} setLayout Sets the layout
+ */
+const renderLayoutNavigation = (layout, setLayout) => {
+  return (
+    <Navigation>
+      <Item active={isBoth(layout)} action={() => setLayout(APP_SPLITTER_LAYOUT.BOTH)}>
+        Split
+      </Item>
+      <Item active={isConsole(layout)} action={() => setLayout(APP_SPLITTER_LAYOUT.CONSOLE_ONLY)}>
+        Console
+      </Item>
+      <Item active={isEditor(layout)} action={() => setLayout(APP_SPLITTER_LAYOUT.EDITOR_ONLY)}>
+        Code Editor
+      </Item>
+    </Navigation>
+  );
+};
 
-  render() {
-    const { isSplit } = this.props;
-    return (
-      <div wrapper="footer" className={this.getComponentClassNames()}>
-        {this.renderSplitOptionsNavigation()}
-        {isSplit && this.renderLayoutNavigation()}
-      </div>
-    );
-  }
+const isTop = p => p === APP_SPLITTER_EDITOR_POSITION.TOP;
+const isRight = p => p === APP_SPLITTER_EDITOR_POSITION.RIGHT;
+const isBottom = p => p === APP_SPLITTER_EDITOR_POSITION.DOWN;
+const isLeft = p => p === APP_SPLITTER_EDITOR_POSITION.LEFT;
+
+/**
+ * Renders the navigation that manages the position of the code editor.
+ *
+ * @param {Number} setEditorPosition TODO
+ * @param {Function} setSplitterEditorPosition Sets the editor position
+ */
+const renderEditorPositionNavigation = (editorPosition, setEditorPosition) => {
+  return (
+    <Navigation>
+      <Item
+        active={isTop(editorPosition)}
+        action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.TOP)}
+      >
+        Code Top
+      </Item>
+      <Item
+        active={isLeft(editorPosition)}
+        action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.LEFT)}
+      >
+        Code Left
+      </Item>
+      <Item
+        active={isRight(editorPosition)}
+        action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.RIGHT)}
+      >
+        Code Right
+      </Item>
+      <Item
+        active={isBottom(editorPosition)}
+        action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.DOWN)}
+      >
+        Code Bottom
+      </Item>
+    </Navigation>
+  );
+};
+
+// Footer
+// ====================================================================================
+
+function Footer() {
+  return (
+    <AppContext.Consumer>
+      {({ splitter: { layout, editorPosition }, setLayout, setEditorPosition }) => (
+        <footer className="c-footer o-wrapper">
+          {renderLayoutNavigation(layout, setLayout)}
+          {isBoth(layout) && renderEditorPositionNavigation(editorPosition, setEditorPosition)}
+        </footer>
+      )}
+    </AppContext.Consumer>
+  );
 }
 
-Footer.propTypes = {
-  isCodeEditorTop: PropTypes.bool.isRequired,
-  isCodeEditorRight: PropTypes.bool.isRequired,
-  isCodeEditorBottom: PropTypes.bool.isRequired,
-  isCodeEditorLeft: PropTypes.bool.isRequired,
-  isSplit: PropTypes.bool.isRequired,
-  isCodeEditor: PropTypes.bool.isRequired,
-  setCodeEditorTop: PropTypes.func.isRequired,
-  setCodeEditorRight: PropTypes.func.isRequired,
-  setCodeEditorBottom: PropTypes.func.isRequired,
-  setCodeEditorLeft: PropTypes.func.isRequired,
-  showAll: PropTypes.func.isRequired,
-  showOnlyConsole: PropTypes.func.isRequired,
-  showOnlyCodeEditor: PropTypes.func.isRequired
-};
+Footer.propTypes = {};
 
 export default Footer;

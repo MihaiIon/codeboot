@@ -22,9 +22,9 @@ html {
   line-height: $line-height; /* [1] */
   background-color: $white; /* [2] */
 
-  font-size: 12px;
+  font-size: 14px;
   @media (min-width: $from-medium) {
-    font-size: 13px;
+    font-size: 15px;
   }
   @media (min-width: $from-big) {
     font-size: $font-size; /* [1] */
