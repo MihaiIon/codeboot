@@ -25,12 +25,12 @@
 
 .c-header_separator,
 .c-header_logo {
-  margin: 0 rem($wrapper--padding-half);
-  @media (max-width: $to-medium) {
+  margin: 0 rem($wrapper--padding-half / 3);
+  @media (min-width: $from-tiny) {
     margin: 0 rem($wrapper--padding-half / 2);
   }
-  @media (max-width: $to-tiny) {
-    margin: 0 rem($wrapper--padding-half / 3);
+  @media (min-width: $from-medium) {
+    margin: 0 rem($wrapper--padding-half);
   }
 }
 
@@ -108,4 +108,8 @@
     border-top-right-radius: $header--btn-border-radius;
     border-bottom-right-radius: $header--btn-border-radius;
   }
+}
+
+.c-header_btn_img {
+  vertical-align: baseline;
 }
