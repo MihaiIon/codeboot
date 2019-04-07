@@ -1,6 +1,6 @@
-// ==========================================================================
+// ========================================================================================================
 // Tools / Mixins
-// ==========================================================================
+// ========================================================================================================
 
 //
 // Set the color of the highlight that appears over a link while it's being tapped.
@@ -90,23 +90,6 @@
     vertical-align: middle;
     font-size: 1rem;
   }
-}
-
-//
-//
-//
-@mixin u-flex-v-center {
-  display: flex;
-  align-items: center;
-}
-
-//
-//
-//
-@mixin u-flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 //
@@ -231,27 +214,4 @@
   $important: important($important);
   display: $display $important;
   visibility: visible $important;
-}
-
-//
-// Scroll within a element without a specific height
-// https://stackoverflow.com/questions/9677894/header-div-stays-at-top-vertical-scrolling-div-below-with-scrollbar-only-attach
-// $left default falue : Follow the navigation width
-//
-@mixin u-scrollable-absolute-area($height, $left: rem($sidebar--width)) {
-  position: absolute;
-  top: rem($height + 2px);
-  bottom: 0; /* Stick to bottom */
-  right: 0; /* Stretch to right side */
-  left: 0; /* Follow the navigation width */
-
-  @media (min-width: $from-large) {
-    overflow-y: scroll; /* Prevent page from jumping */
-  }
-
-  @media (max-width: $to-large) {
-    top: 0;
-    left: 0;
-    position: relative;
-  }
 }

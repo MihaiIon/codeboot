@@ -1,31 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import classNamesHelper from "classnames-helper";
 
-// Helpers
-import classNamesHelper from "../../../_helpers/classNamesHelper";
-
-class FooterItem extends Component {
-  // ------------------------------------------------------
-  // Methods
-
-  getComponentClassNames() {
-    const { active } = this.props;
-    return classNamesHelper("c-footer_btn", ["-active", active]);
-  }
-
-  // ------------------------------------------------------
-  // Render
-
-  render() {
-    const { children } = this.props;
-    return (
-      <li className="c-footer_item">
-        <button type="button" className={this.getComponentClassNames()}>
-          {children}
-        </button>
-      </li>
-    );
-  }
+function FooterItem({ children, action, active }) {
+  return (
+    <li className="c-footer_item">
+      <button
+        type="button"
+        onClick={action}
+        className={classNamesHelper("c-footer_btn", ["-active", active])}
+      >
+        {children}
+      </button>
+    </li>
+  );
 }
 
 FooterItem.defaultProps = {
@@ -34,6 +22,7 @@ FooterItem.defaultProps = {
 
 FooterItem.propTypes = {
   active: PropTypes.bool,
+  action: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired
 };
 

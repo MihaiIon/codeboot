@@ -1,16 +1,46 @@
-import { connect } from "react-redux";
+import React, { useState } from "react";
 
-// Impoer component
-import App from "./App";
+// Import components
+import Footer from "../Footer";
+import Header from "../Header";
+import { Overlay, Splitter } from "../../components-ui";
 
-// import Actions
-import * as appActions from "../../actions/app";
+// Core
+import initialState from "./core/constants";
 
-const mapStateToProps = ({ app }) => ({});
+export const AppContext = React.createContext();
 
-const mapDispatchToProps = dispatch => ({});
+function App() {
+  const [state, setAppState] = useState(initialState.state);
+  const [isOverlay, setOverlayVisibility] = useState(initialState.isOverlay);
+  const [settings, setSettings] = useState(initialState.settings);
+  const [splitter, setSplitter] = useState(initialState.splitter);
+  const ctx = {
+    state,
+    splitter,
+    settings,
+    setState: newState => setAppState(newState),
+    setAnimationSpeed: speed => setSettings({ ...settings, animationSpeed: speed }),
+    setDrawingWindowVisibility: bool => setSettings({ ...settings, showDrawingWindow: bool }),
+    setPixelGridVisibility: bool => setSettings({ ...settings, showPixelGrid: bool }),
+    setLayout: layout => setSplitter({ ...splitter, layout }),
+    setEditorPosition: p => setSplitter({ ...splitter, editorPosition: p }),
+    setUserMode: mode => setSettings({ ...settings, userMode: mode }),
+    setOverlayVisibility
+  };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+  return (
+    <AppContext.Provider value={ctx}>
+      <div id="js-app" className="c-app">
+        <Header />
+        <main>
+          <Splitter />
+        </main>
+        <Footer />
+        <Overlay isOverlay={isOverlay} />
+      </div>
+    </AppContext.Provider>
+  );
+}
+
+export default App;

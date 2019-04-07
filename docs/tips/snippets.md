@@ -37,7 +37,7 @@ Pour en savoir d'avantage, une description de chaque _snippet_ est disponible ci
 
 ## Base
 
-**name** : *Base :: Code Separateur*
+**name** : _Base :: Code Separateur_
 **prefix** : `sep`
 **body**:
 
@@ -47,7 +47,7 @@ Pour en savoir d'avantage, une description de chaque _snippet_ est disponible ci
 
 ---
 
-**name** : *Base :: Code Separateur 2*
+**name** : _Base :: Code Separateur 2_
 **prefix** : `sep2`
 **body**:
 
@@ -57,7 +57,7 @@ Pour en savoir d'avantage, une description de chaque _snippet_ est disponible ci
 
 ---
 
-**name** : *Base :: Console Log*
+**name** : _Base :: Console Log_
 **prefix** : `cl`
 **body**:
 
@@ -68,7 +68,7 @@ $0;
 
 ---
 
-**name** : *Base :: Import*
+**name** : _Base :: Import_
 **prefix** : `impf`
 **body**:
 
@@ -79,7 +79,7 @@ $0;
 
 ---
 
-**name** : *Base :: Import Component to Connect it*
+**name** : _Base :: Import Component to Connect it_
 **prefix** : `impc`
 **body**:
 
@@ -90,7 +90,7 @@ $0;
 
 ---
 
-**name** : *Base :: Import Default*
+**name** : _Base :: Import Default_
 **prefix** : `impd`
 **body**:
 
@@ -101,7 +101,7 @@ $0;
 
 ---
 
-**name** : *Base :: Export*
+**name** : _Base :: Export_
 **prefix** : `ex`
 **body**:
 
@@ -111,7 +111,7 @@ export const ${1:name} = $0;
 
 ---
 
-**name** : *Base :: Export Default*
+**name** : _Base :: Export Default_
 **prefix** : `exd`
 **body**:
 
@@ -121,7 +121,7 @@ export default $0;
 
 ---
 
-**name** : *Base :: Export Default As*
+**name** : _Base :: Export Default As_
 **prefix** : `exda`
 **body**:
 
@@ -132,7 +132,7 @@ $0;
 
 ---
 
-**name** : *Base :: Export Connected Component*
+**name** : _Base :: Export Connected Component_
 **prefix** : `exc`
 **body**:
 
@@ -146,7 +146,7 @@ $0;
 
 ---
 
-**name** : *Base :: Class Constructor*
+**name** : _Base :: Class Constructor_
 **prefix** : `con`
 **body**:
 
@@ -159,7 +159,7 @@ constructor(props) {
 
 ---
 
-**name** : *Base :: Arrow Function*
+**name** : _Base :: Arrow Function_
 **prefix** : `fn`
 **body**:
 
@@ -169,7 +169,7 @@ $1 => $0;
 
 ---
 
-**name** : *Base :: Arrow Function (with body)*
+**name** : _Base :: Arrow Function (with body)_
 **prefix** : `fnb`
 **body**:
 
@@ -181,7 +181,7 @@ $1 => {
 
 ---
 
-**name** : *Base :: Arrow Function (returns objet)*
+**name** : _Base :: Arrow Function (returns objet)_
 **prefix** : `fno`
 **body**:
 
@@ -192,7 +192,7 @@ $0;
 
 ---
 
-**name** : *Base :: Arrow Function (dispatch)*
+**name** : _Base :: Arrow Function (dispatch)_
 **prefix** : `fnd`
 **body**:
 
@@ -202,7 +202,7 @@ $0;
 
 ---
 
-**name** : *Base :: For Loop*
+**name** : _Base :: For Loop_
 **prefix** : `forloop`
 **body**:
 
@@ -216,7 +216,7 @@ for (let ${1:i} = ${2:0}; $1 < ${3:length}; $1 += 1) {
 
 ## React
 
-**name** : *React :: Component Props*
+**name** : _React :: Component Props_
 **prefix** : `props`
 **body**:
 
@@ -226,7 +226,7 @@ this.props.$0;
 
 ---
 
-**name** : *React :: Component State*
+**name** : _React :: Component State_
 **prefix** : `state`
 **body**:
 
@@ -236,7 +236,7 @@ this.state.$0;
 
 ---
 
-**name** : *React :: Destructure From Props*
+**name** : _React :: Destructure From Props_
 **prefix** : `dfp`
 **body**:
 
@@ -247,7 +247,7 @@ $0;
 
 ---
 
-**name** : *React :: Destructure From State*
+**name** : _React :: Destructure From State_
 **prefix** : `dfs`
 **body**:
 
@@ -258,7 +258,7 @@ $0;
 
 ---
 
-**name** : *React :: Destructure From Object*
+**name** : _React :: Destructure From Object_
 **prefix** : `dfo`
 **body**:
 
@@ -269,7 +269,7 @@ $0;
 
 ---
 
-**name** : *React :: Component Proptypes*
+**name** : _React :: Component Proptypes_
 **prefix** : `cpt`
 **body**:
 
@@ -279,7 +279,7 @@ ${1:${TM_FILENAME_BASE}}.propTypes = { $0 };
 
 ---
 
-**name** : *React :: Component Default Props*
+**name** : _React :: Component Default Props_
 **prefix** : `cdp`
 **body**:
 
@@ -289,7 +289,7 @@ ${1:${TM_FILENAME_BASE}}.defaultProps = { $0 };
 
 ---
 
-**name** : *React :: Component Did Mount*
+**name** : _React :: Component Did Mount_
 **prefix** : `cdm`
 **body**:
 
@@ -301,7 +301,7 @@ componentDidMount() {
 
 ---
 
-**name** : *React :: Should Component Update*
+**name** : _React :: Should Component Update_
 **prefix** : `scu`
 **body**:
 
@@ -313,7 +313,7 @@ shouldComponentUpdate() {
 
 ---
 
-**name** : *React :: Component Did Update*
+**name** : _React :: Component Did Update_
 **prefix** : `cdup`
 **body**:
 
@@ -325,7 +325,7 @@ componentDidUpdate() {
 
 ---
 
-**name** : *React :: Component Will Unmount*
+**name** : _React :: Component Will Unmount_
 **prefix** : `cwun`
 **body**:
 
@@ -339,7 +339,7 @@ componentWillUnmount() {
 
 ## Redux
 
-**name** : *Redux :: Dispatch*
+**name** : _Redux :: Dispatch_
 **prefix** : `dispatch`
 **body**:
 
@@ -349,7 +349,7 @@ dispatch(${1:action}($0));
 
 ---
 
-**name** : *Redux :: Map State to Props*
+**name** : _Redux :: Map State to Props_
 **prefix** : `maps`
 **body**:
 
@@ -359,7 +359,7 @@ const mapStateToProps = ({ $1 }) => ({ $0 });
 
 ---
 
-**name** : *Redux :: Map Dispatch to Props*
+**name** : _Redux :: Map Dispatch to Props_
 **prefix** : `mapd`
 **body**:
 
@@ -369,7 +369,7 @@ const mapDispatchToProps = ({ $1 }) => ({ $0 });
 
 ---
 
-**name** : *React :: Get Component Modifiers*
+**name** : _React :: Get Component Modifiers_
 **prefix** : `cgm`
 **body**:
 
@@ -385,7 +385,7 @@ getComponentModifiers() {
 
 ## Templates
 
-**name** : *Template :: React Component*
+**name** : _Template :: React Component_
 **prefix** : `t_component`
 **body**:
 
@@ -410,7 +410,7 @@ export default ${1:${TM_FILENAME_BASE}};
 
 ---
 
-**name** : *Template :: Redux Container*
+**name** : _Template :: Redux Container_
 **prefix** : `t_container`
 **body**:
 
@@ -432,7 +432,7 @@ export default connect(
 
 ---
 
-**name** : *Template :: Redux Action*
+**name** : _Template :: Redux Action_
 **prefix** : `t_action`
 **body**:
 
@@ -452,7 +452,7 @@ export const ${3:action} = () => ({$0});
 
 ---
 
-**name** : *Template :: Redux Action (Module)*
+**name** : _Template :: Redux Action (Module)_
 **prefix** : `t_action_module`
 **body**:
 
@@ -474,7 +474,7 @@ export const ${3:action} = () => ({$0});
 
 ---
 
-**name** : *Template :: Redux Reducer*
+**name** : _Template :: Redux Reducer_
 **prefix** : `t_reducer`
 **body**:
 
@@ -499,7 +499,7 @@ export default (state = initialState, action) => {
 
 ---
 
-**name** : *Template :: Redux Reducer (Module)*
+**name** : _Template :: Redux Reducer (Module)_
 **prefix** : `t_reducer_module`
 **body**:
 
@@ -524,7 +524,7 @@ export default (state = initialState, action) => {
 
 # SASS
 
-**name** : *Base :: Code Separator*
+**name** : _Base :: Code Separator_
 **prefix** : `sep`
 **body**:
 
@@ -534,7 +534,7 @@ export default (state = initialState, action) => {
 
 ---
 
-**name** : *Base :: Formated Variable*
+**name** : _Base :: Formated Variable_
 **prefix** : `var`
 **body**:
 
@@ -544,7 +544,7 @@ $${1:${TM_FILENAME_BASE/_(.*)/$1/}}--${2:prop-name}: $0;
 
 ---
 
-**name** : *Darken Color*
+**name** : _Darken Color_
 **prefix** : `darken`
 **body**:
 
@@ -554,7 +554,7 @@ darken($${1:var-name}, ${0:10}%);
 
 ---
 
-**name** : *Lighten Color*
+**name** : _Lighten Color_
 **prefix** : `ligthen`
 **body**:
 
@@ -564,14 +564,14 @@ lighten($${1:var-name}, ${0:10}%);
 
 ---
 
-**name** : *Template :: SASS File*
+**name** : _Template :: SASS File_
 **prefix** : `t_sass`
 **body**:
 
 ```js
-// ======================================================
+// ====================================================================================
 // ${TM_DIRECTORY/.*scss\\W([a-z]*)/${1:/capitalize}/} / ${TM_FILENAME_BASE/_(.*)/${1:/capitalize}/}
-// ======================================================
+// ====================================================================================
 
 .${2:c}-${TM_FILENAME_BASE/_(.*)/$1/} {$0}
 ```

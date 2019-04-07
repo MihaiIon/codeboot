@@ -1,6 +1,6 @@
-// ==========================================================================
+// ========================================================================================================
 // Objects / Layout
-// ==========================================================================
+// ========================================================================================================
 
 //
 // Grid-like layout system.
@@ -43,22 +43,11 @@
 
   // Gutter modifiers
   &.-gutter {
-    margin-left: rem(-$unit-large);
-  }
-
-  &.-gutter\@from-medium {
-    @media (min-width: $from-medium) {
-      margin-left: rem(-$unit-large);
-    }
+    margin-left: rem(-$unit);
   }
 
   &.-gutter-small {
-    margin-left: rem(-$unit);
-  }
-  &.-gutter-small\@to-medium {
-    @media (max-width: $to-medium) {
-      margin-left: rem(-$unit);
-    }
+    margin-left: rem(-$unit/2);
   }
 
   // Horizontal aligment modifiers
@@ -101,23 +90,11 @@
 
   // Gutter modifiers
   .o-layout.-gutter > & {
-    padding-left: rem($unit-large);
-  }
-
-  .o-layout.-gutter-small > & {
     padding-left: rem($unit);
   }
 
-  .o-layout.-gutter\@from-medium > & {
-    @media (min-width: $from-medium) {
-      padding-left: rem($unit-large);
-    }
-  }
-
-  .o-layout.-gutter-small\@to-medium > & {
-    @media (max-width: $to-medium) {
-      padding-left: rem($unit);
-    }
+  .o-layout.-gutter-small > & {
+    padding-left: rem($unit/2);
   }
 
   // Vertical alignment modifiers
@@ -139,8 +116,4 @@
   .o-layout.-reverse > & {
     direction: ltr;
   }
-}
-
-.o-layout_item.-center {
-  text-align: center;
 }

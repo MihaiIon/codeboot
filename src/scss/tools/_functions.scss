@@ -1,6 +1,5 @@
-// ==========================================================================
 // Tools / Functions
-// ==========================================================================
+// ========================================================================================================
 
 //
 // Converts the given pixel value to its EM quivalent.
@@ -77,22 +76,22 @@
 // @return {Boolean}
 // @access private
 //
-@function list-contains(
-  $list,
-  $values...
-) {
+@function list-contains($list, $values...) {
   @each $value in $values {
     @if type-of(index($list, $value)) != "number" {
       @return false;
     }
   }
+
   @return true;
 }
+
+//
 // Resolve whether a rule is important or not.
+//
 // @param  {Boolean}     $flag - Whether a rule is important (TRUE) or not (FALSE).
 // @return {String|Null} Returns `!important` or NULL.
-
-
+//
 @function important($flag: false) {
   @if ($flag == true) {
     @return !important;
@@ -103,20 +102,25 @@
     @error "`#{$flag}` needs to be `true` or `false`.";
   }
 }
+
+//
 // Determine if the current context is for a WYSIWYG editor.
+//
 // @requires {String} $context - The global context of the stylesheet.
 // @return   {Boolean} If the $context is set to "editor".
-
-
+//
 @function is-editor() {
   @return ("editor" == $context);
 }
+
+//
 // Determine if the current context is for the front-end.
+//
 // @requires {String} $context - The global context of the stylesheet.
 // @return   {Boolean} If the $context is set to "frontend".
-
-
+//
 @function is-frontend() {
   @return ("frontend" == $context);
 }
+
 $context: "frontend" !default;

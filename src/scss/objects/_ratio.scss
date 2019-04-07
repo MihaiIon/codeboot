@@ -1,6 +1,6 @@
-// ==========================================================================
+// ========================================================================================================
 // Objects / Ratio
-// ==========================================================================
+// ========================================================================================================
 
 //
 // @link https://github.com/inuitcss/inuitcss/blob/19d0c7e/objects/_objects.ratio.scss
@@ -8,7 +8,17 @@
 
 // A list of aspect ratios that get generated as modifier classes.
 
-$aspect-ratios: ( (2:1),  (4:3),  (16:9)) !default;
+$aspect-ratios: (
+  (
+    2: 1
+  ),
+  (
+    4: 3
+  ),
+  (
+    16: 9
+  )
+) !default;
 
 /**
  * Create ratio-bound content blocks, to keep media (e.g. images, videos) in

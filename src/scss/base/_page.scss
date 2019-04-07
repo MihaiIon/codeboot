@@ -1,6 +1,6 @@
-// ==========================================================================
+// ========================================================================================================
 // Base / Page
-// ==========================================================================
+// ========================================================================================================
 
 //
 // Simple page-level setup.
@@ -14,7 +14,7 @@
 //
 html {
   width: 100vw;
-  min-width: 550px; /* [3] */
+  min-width: $from-medium; /* [3] */
   overflow: hidden;
   height: 100vh; /* [5] */
   color: $color;
@@ -22,14 +22,10 @@ html {
   line-height: $line-height; /* [1] */
   background-color: $white; /* [2] */
 
-  @media (max-width: $to-medium) {
-    font-size: 12px;
+  font-size: 14px;
+  @media (min-width: $from-medium) {
+    font-size: 15px;
   }
-
-  @media (min-width: $from-medium) and (max-width: $to-big) {
-    font-size: 13px;
-  }
-
   @media (min-width: $from-big) {
     font-size: $font-size; /* [1] */
   }

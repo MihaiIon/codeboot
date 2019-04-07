@@ -1,6 +1,6 @@
-// ==========================================================================
+// ========================================================================================================
 // Utilities / States
-// ==========================================================================
+// ========================================================================================================
 
 /**
  * ARIA roles display visual cursor hints
@@ -18,8 +18,8 @@
 }
 
 /**
-* Control visibility without affecting flow.
-*/
+ * Control visibility without affecting flow.
+ */
 
 .is-visible {
   visibility: visible !important;
@@ -32,8 +32,8 @@
 }
 
 /**
-* Completely remove from the flow and screen readers.
-*/
+ * Completely remove from the flow and screen readers.
+ */
 
 .is-hidden {
   @include u-hidden;

@@ -8,7 +8,7 @@ class NewFile extends Component {
   render() {
     return (
       <Item transparent>
-        <img src="./assets/file.svg" alt="Add new script" />
+        <img className="c-header_btn_img" src="./assets/file.svg" alt="Add new script" />
       </Item>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 // Helpers
-import classNamesHelper from "../../../../_helpers/classNamesHelper";
+import classNamesHelper from "classnames-helper";
 
 class HeaderNav extends Component {
   // ------------------------------------------------------

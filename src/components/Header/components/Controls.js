@@ -23,7 +23,7 @@ class Control extends Component {
   render() {
     return (
       <Item>
-        <img src={this.getSVGPath()} alt="play" />
+        <img className="c-header_btn_img" src={this.getSVGPath()} alt="play" />
       </Item>
     );
   }

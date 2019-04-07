@@ -1,6 +1,6 @@
-// ==========================================================================
+// ========================================================================================================
 // Tools / Widths
-// ==========================================================================
+// ========================================================================================================
 
 // Optionally, the boilerplate can generate classes to offset items by a
 // certain width. Would you like to generate these types of class as well? E.g.:
@@ -75,35 +75,5 @@ $breakpoint-delimiter: \@ !default;
         }
       }
     }
-  }
-}
-
-/* 2 */
-
-.u-1\/2\@from-small {
-  @media (min-width: $from-small) {
-    width: span(1/2) !important;
-  }
-}
-
-.u-1\/2\@to-small {
-  @media (max-width: $to-small) {
-    width: span(1/2) !important;
-  }
-}
-
-.u-1\/2\@from-medium {
-  @media (min-width: $from-medium) {
-    width: span(1/2) !important;
-  }
-}
-
-/* 3 */
-
-/* 4 */
-
-.u-1\/4\@from-small {
-  @media (min-width: $from-small) {
-    width: span(1/4) !important;
   }
 }

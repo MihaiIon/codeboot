@@ -1,13 +1,13 @@
-// ======================================================
+// ====================================================================================
 // Components / Header
-// ======================================================
+// ====================================================================================
 
 .c-header {
   position: relative;
   height: rem($header--height);
-  padding: 0 rem($header--padding);
+  padding-top: rem($unit / 2);
+  padding-bottom: rem($unit / 2);
 
-  display: flex;
   justify-content: space-between;
   background-color: $novice-color;
   .-default & {
@@ -21,16 +21,16 @@
 }
 
 // Logo
-// ======================================================
+// ====================================================================================
 
 .c-header_separator,
 .c-header_logo {
-  margin: 0 rem($wrapper--padding-half);
-  @media (max-width: $to-medium) {
+  margin: 0 rem($wrapper--padding-half / 3);
+  @media (min-width: $from-tiny) {
     margin: 0 rem($wrapper--padding-half / 2);
   }
-  @media (max-width: $to-tiny) {
-    margin: 0 rem($wrapper--padding-half / 3);
+  @media (min-width: $from-medium) {
+    margin: 0 rem($wrapper--padding-half);
   }
 }
 
@@ -59,7 +59,7 @@
 }
 
 // Navigation
-// ======================================================
+// ====================================================================================
 
 .c-header_separator,
 .c-header_nav {
@@ -108,4 +108,8 @@
     border-top-right-radius: $header--btn-border-radius;
     border-bottom-right-radius: $header--btn-border-radius;
   }
+}
+
+.c-header_btn_img {
+  vertical-align: baseline;
 }
