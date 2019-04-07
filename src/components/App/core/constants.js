@@ -41,6 +41,10 @@ export const APP_USER_MODE = {
 export default {
   state: APP_STATE.IDLE,
   isOverlay: false,
+  modal: {
+    isVisible: false,
+    content: null
+  },
   splitter: {
     layout: APP_SPLITTER_LAYOUT.CONSOLE_ONLY,
     editorPosition: APP_SPLITTER_EDITOR_POSITION.DOWN
