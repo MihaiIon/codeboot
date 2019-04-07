@@ -11,11 +11,18 @@ import { AppContext } from "../App";
 import { APP_SPLITTER_LAYOUT, APP_SPLITTER_EDITOR_POSITION } from "../App/core/constants";
 
 // Helpers
-// ====================================================================================
+import {
+  isBoth,
+  isConsole,
+  isEditor,
+  isEditorTop,
+  isEditorRight,
+  isEditorBottom,
+  isEditorLeft
+} from "../App/core/helpers";
 
-const isBoth = layout => layout === APP_SPLITTER_LAYOUT.BOTH;
-const isConsole = layout => layout === APP_SPLITTER_LAYOUT.CONSOLE_ONLY;
-const isEditor = layout => layout === APP_SPLITTER_LAYOUT.EDITOR_ONLY;
+// Helpers
+// ====================================================================================
 
 /**
  * Renders the navigation the manages the layout of the application.
@@ -39,11 +46,6 @@ const renderLayoutNavigation = (layout, setLayout) => {
   );
 };
 
-const isTop = p => p === APP_SPLITTER_EDITOR_POSITION.TOP;
-const isRight = p => p === APP_SPLITTER_EDITOR_POSITION.RIGHT;
-const isBottom = p => p === APP_SPLITTER_EDITOR_POSITION.DOWN;
-const isLeft = p => p === APP_SPLITTER_EDITOR_POSITION.LEFT;
-
 /**
  * Renders the navigation that manages the position of the code editor.
  *
@@ -54,25 +56,25 @@ const renderEditorPositionNavigation = (editorPosition, setEditorPosition) => {
   return (
     <Navigation>
       <Item
-        active={isTop(editorPosition)}
+        active={isEditorTop(editorPosition)}
         action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.TOP)}
       >
         Code Top
       </Item>
       <Item
-        active={isLeft(editorPosition)}
+        active={isEditorLeft(editorPosition)}
         action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.LEFT)}
       >
         Code Left
       </Item>
       <Item
-        active={isRight(editorPosition)}
+        active={isEditorRight(editorPosition)}
         action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.RIGHT)}
       >
         Code Right
       </Item>
       <Item
-        active={isBottom(editorPosition)}
+        active={isEditorBottom(editorPosition)}
         action={() => setEditorPosition(APP_SPLITTER_EDITOR_POSITION.DOWN)}
       >
         Code Bottom

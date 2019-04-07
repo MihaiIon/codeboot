@@ -3,8 +3,7 @@ import React, { useState } from "react";
 // Import components
 import Footer from "../Footer";
 import Header from "../Header";
-import { Overlay } from "../../components-ui";
-import Splitter from "../Splitter";
+import { Overlay, Splitter } from "../../components-ui";
 
 // Core
 import initialState from "./core/constants";
@@ -24,8 +23,8 @@ function App() {
     setAnimationSpeed: speed => setSettings({ ...settings, animationSpeed: speed }),
     setDrawingWindowVisibility: bool => setSettings({ ...settings, showDrawingWindow: bool }),
     setPixelGridVisibility: bool => setSettings({ ...settings, showPixelGrid: bool }),
-    setSplitterLayout: layout => setSplitter({ ...splitter, layout }),
-    setSplitterEditorPosition: p => setSplitter({ ...splitter, editorPosition: p }),
+    setLayout: layout => setSplitter({ ...splitter, layout }),
+    setEditorPosition: p => setSplitter({ ...splitter, editorPosition: p }),
     setUserMode: mode => setSettings({ ...settings, userMode: mode }),
     setOverlayVisibility
   };

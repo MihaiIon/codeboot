@@ -1,13 +1,12 @@
-import { connect } from "react-redux";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-// Components
-import Layout from "./Layout";
+class Layout extends Component {
+  render() {
+    return <div className="c-layout" />;
+  }
+}
 
-const mapStateToProps = ({ layout }) => ({});
+Layout.propTypes = {};
 
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Layout);
+export default Layout;

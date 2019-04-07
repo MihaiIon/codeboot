@@ -25,7 +25,7 @@ class CodeEditorNav extends Component {
           <CodeEditorTab active filename="filename.js" />
           <CodeEditorTab filename="filename_2.js" />
         </ul>
-        <button className="c-code-editor_add-btn" type="button" onClick={() => addScript()}>
+        <button className="c-code-editor_add-btn" type="button" onClick={() => null}>
           <AddIcon className="c-code-editor_add-btn_icon" color="currentColor" />
         </button>
       </nav>
