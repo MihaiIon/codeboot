@@ -5,10 +5,7 @@
 - [Prérequis](#prerequis)
 - [Snippets](#snippets)
 - [Template](#template)
-- [Variables](#variables) 
-	- [Système de grille](#systeme-de-grille) 
-	- [Usage](#usage) 
-	- [Gestion des colonnes](#Gestion-des-colonnes)
+- [Variables](#variables) - [Système de grille](#systeme-de-grille) - [Usage](#usage) - [Gestion des colonnes](#Gestion-des-colonnes)
 - [Media](#media)
 - [Flex](#flex)
 - [Propriétés](#propriétés)
@@ -37,9 +34,9 @@ Lorsque vous avez créé un nouveau fichier **scss**, utilisez le préfix `tmp_s
 **Fichier** : scss / components / _\_navigation.scss_
 
 ```scss
-// ======================================================
+// ====================================================================================
 // Components / Navigation
-// ======================================================
+// ====================================================================================
 
 .c-navigation {
 }
@@ -149,12 +146,12 @@ Utilisation :
 
 ```html
 <div className="o-layout">
-	<div className="o-layout_item u-1/2@from-small" />
-	<div className="o-layout_item u-1/2@from-small" />
+  <div className="o-layout_item u-1/2@from-small" />
+  <div className="o-layout_item u-1/2@from-small" />
 </div>
 ```
 
-**Note**: Dans l'exemple ci-haut, les `div` aurons une taille de _100%_ par défaut, mais cela passe a _50%_ à partir de _$from-small_.
+**Note**: Dans l'exemple ci-haut, les `div` aurons une taille de _100%_ par défaut, mais cela passe a _50%_ à partir de _\$from-small_.
 
 ---
 
@@ -164,7 +161,7 @@ Pour center des elements de façon verticale, utilisez l'approche suivante :
 
 ```html
 <div className="o-layout -flex -middle">
-	...
+  ...
 </div>
 ```
 

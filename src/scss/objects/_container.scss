@@ -1,6 +1,6 @@
-// ==========================================================================
+// ========================================================================================================
 // Objects / Container
-// ==========================================================================
+// ========================================================================================================
 
 //
 // Page-level constraining and wrapping elements.
@@ -14,14 +14,14 @@
 
 /* stylelint-disable */
 @if (type-of($container-width) != number) {
-    @error "`#{$container-width}` needs to be a number."
+  @error "`#{$container-width}` needs to be a number.";
 }
 /* stylelint-enable */
 
 .o-container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $padding;
-    padding-left: $padding;
-    max-width: $container-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $padding;
+  padding-left: $padding;
+  max-width: $container-width;
 }

@@ -35,9 +35,6 @@ function App() {
       <div id="js-app" className="c-app">
         <Header />
         <main>
-          <button type="button" onClick={() => setOverlayVisibility(!isOverlay)}>
-            {String(isOverlay)}
-          </button>
           <Splitter />
         </main>
         <Footer />
