@@ -14,7 +14,7 @@
 //
 html {
   width: 100vw;
-  min-width: 550px; /* [3] */
+  min-width: $from-medium; /* [3] */
   overflow: hidden;
   height: 100vh; /* [5] */
   color: $color;

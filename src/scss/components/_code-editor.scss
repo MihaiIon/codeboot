@@ -2,7 +2,8 @@
 // Components / Code Editor
 // ====================================================================================
 
-.c-code-editor {
+.c-code-editor,
+.CodeMirror-wrap {
   height: 100%;
   position: relative;
 }
