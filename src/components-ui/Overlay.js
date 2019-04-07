@@ -1,32 +1,22 @@
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 
 // Components
-import { AnimatedComponent } from "../components-anim";
+import { animated as a, useTransition } from "react-spring";
 
-class Overlay extends Component {
-  render() {
-    const { action, mount } = this.props;
-    return (
-      <aside>
-        <AnimatedComponent wrapper="div" className="c-overlay o-overlay" mount={mount}>
-          <div
-            style={{ height: "100%" }}
-            aria-label="close-navigation"
-            onClick={() => action()}
-            onKeyPress={null}
-            tabIndex={0}
-            role="button"
-          />
-        </AnimatedComponent>
-      </aside>
-    );
-  }
+function Overlay({ isOverlay }) {
+  const transitions = useTransition(isOverlay, null, {
+    from: { opacity: "0" },
+    enter: { opacity: "1" },
+    leave: { opacity: "0" }
+  });
+  return transitions.map(
+    ({ item, props }) => item && <a.aside className="o-overlay" style={props} />
+  );
 }
 
 Overlay.propTypes = {
-  mount: PropTypes.bool.isRequired,
-  action: PropTypes.func.isRequired
+  isOverlay: PropTypes.bool.isRequired
 };
 
 export default Overlay;
