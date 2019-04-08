@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 // Helpers
-import classNamesHelper from "classnames-helper";
+import cn from "classnames-helper";
 
 class HeaderItem extends Component {
   // ------------------------------------------------------
@@ -10,7 +10,7 @@ class HeaderItem extends Component {
 
   getComponentClassNames() {
     const { transparent, green } = this.props;
-    return classNamesHelper("c-header_btn", ["-green", green], ["-transparent", transparent]);
+    return cn("c-header_btn", ["-green", green], ["-transparent", transparent]);
   }
 
   // ------------------------------------------------------

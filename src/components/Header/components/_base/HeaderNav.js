@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 // Helpers
-import classNamesHelper from "classnames-helper";
+import cn from "classnames-helper";
 
 class HeaderNav extends Component {
   // ------------------------------------------------------
@@ -10,7 +10,7 @@ class HeaderNav extends Component {
 
   getComponentClassNames() {
     const { linked } = this.props;
-    return classNamesHelper("c-header_nav", "o-layout -flex -middle", ["-linked", linked]);
+    return cn("c-header_nav", "o-layout -flex -middle", ["-linked", linked]);
   }
 
   // ------------------------------------------------------

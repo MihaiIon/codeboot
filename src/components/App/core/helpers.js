@@ -2,7 +2,12 @@
 // Components / App / Core / Helpers
 // ====================================================================================
 
-import { APP_SPLITTER_LAYOUT, APP_SPLITTER_EDITOR_POSITION } from "./constants";
+import { APP_USER_MODE, APP_SPLITTER_LAYOUT, APP_SPLITTER_EDITOR_POSITION } from "./constants";
+
+// User Mode
+// ====================================================================================
+
+export const isNovice = userMode => userMode === APP_USER_MODE.NOVICE;
 
 // Layout
 // ====================================================================================

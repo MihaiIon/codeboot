@@ -1,11 +1,31 @@
 // ========================================================================================================
-// Objects / Buttons
+// Objects / Button
 // ========================================================================================================
-.o-button {
+
+.o-btn {
+  padding: rem($unit / 2) rem($unit);
+  border: solid 1px darken($gray-light, 5%);
+  border-radius: rem($button--border-raduis);
+  background-color: $gray-light;
   @include u-hocus {
-    background-color: gray;
+    background-color: $gray;
   }
 
-  padding: rem(10px);
-  background-color: lightgray;
+  &.-main {
+    color: $white;
+    border-color: $default-color;
+    background-color: $default-color;
+    @include u-hocus {
+      background-color: $default-color-dark;
+    }
+    .t-novice & {
+      border-color: $novice-color;
+      background-color: $novice-color;
+      @include u-hocus {
+        background-color: $novice-color-dark;
+      }
+    }
+  }
+
+  transition: $speed / 2 $easing;
 }

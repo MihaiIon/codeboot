@@ -1,15 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNamesHelper from "classnames-helper";
+import cn from "classnames-helper";
 
 function FooterItem({ children, action, active }) {
   return (
     <li className="c-footer_item">
-      <button
-        type="button"
-        onClick={action}
-        className={classNamesHelper("c-footer_btn", ["-active", active])}
-      >
+      <button type="button" onClick={action} className={cn("c-footer_btn", ["-active", active])}>
         {children}
       </button>
     </li>

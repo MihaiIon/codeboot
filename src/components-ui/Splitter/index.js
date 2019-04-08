@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import cnh from "classnames-helper";
+import cn from "classnames-helper";
 
 // Components
 import SplitterHandle from "./components/SplitterHandle";
@@ -39,7 +39,7 @@ function Splitter() {
             return (
               <div
                 id="js-splitter"
-                className={cnh("c-splitter", ["-horizontal", "-vertical", isHorizontal])}
+                className={cn("c-splitter", ["-horizontal", "-vertical", isHorizontal])}
               >
                 <SplitterHandle
                   isHorizontal={isHorizontal}
