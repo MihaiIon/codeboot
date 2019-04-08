@@ -20,6 +20,8 @@ TODO
 
 ### Indexes
 
+5 - Splitter
+
 10 - Overlay(s)
 
 20 - Modal(s)
