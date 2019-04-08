@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTransition, animated as a } from "react-spring";
-import cnh from "classnames-helper";
+import cn from "classnames-helper";
 
 // Components
 import CloseIcon from "react-ionicons/lib/MdClose";
@@ -25,7 +25,7 @@ function Modal({ children, show, large, title }) {
           {({ closeModal }) => (
             <a.aside
               style={props}
-              className={cnh("c-modal o-overlay", "o-layout -flex -middle", ["-large", large])}
+              className={cn("c-modal o-overlay", "o-layout -flex -middle", ["-large", large])}
               onClick={closeModal}
             >
               <div className="c-modal_box o-layout_item">

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 
 // Helpers
-import classNamesHelper from "classnames-helper";
+import cn from "classnames-helper";
 
 // Components
 import Logo from "./components/Logo";
@@ -16,7 +16,7 @@ import Controls from "./components/Controls";
 
 function Header() {
   return (
-    <div className={classNamesHelper("c-header o-wrapper", "o-layout -flex")}>
+    <div className={cn("c-header o-wrapper", "o-layout -flex")}>
       <Navigation>
         <Logo />
         <div className="c-header_separator o-layout_item" />
