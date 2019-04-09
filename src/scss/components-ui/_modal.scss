@@ -10,23 +10,10 @@
 
 .c-modal_box {
   width: rem($modal--width);
-  padding: rem($unit);
+  padding: rem($modal--padding);
   border-radius: rem($modal--border-radius);
   background-color: $white;
 }
-
-.c-modal_header {
-  justify-content: space-between;
-  margin-bottom: rem($unit / 2);
-}
-
-.c-modal_footer {
-  text-align: right;
-  margin-top: rem($modal--footer-margin-top);
-}
-
-// Buttons
-// ====================================================================================
 
 .c-modal_btn {
   &:not(:last-child) {
@@ -34,7 +21,41 @@
   }
 }
 
+.c-modal_footer {
+  text-align: right;
+  margin-top: rem($modal--footer-margin-top);
+}
+
+// Header
+// ====================================================================================
+
+.c-modal_header {
+  position: relative;
+  margin-bottom: rem($unit / 3);
+}
+
+.c-modal_title {
+  width: 100%;
+  font-size: rem($modal--title-font-size);
+  font-weight: $bold;
+  text-align: center;
+  text-transform: uppercase;
+
+  opacity: 0.4;
+  margin-bottom: 0;
+
+  color: $default-color-dark;
+  .t-novice & {
+    color: $novice-color-dark;
+  }
+}
+
 .c-modal_close-btn_icon {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+
   color: $gray;
   @include u-hocus {
     color: $danger;
