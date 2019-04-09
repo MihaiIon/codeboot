@@ -2,10 +2,6 @@
 // Components-ui / Modal
 // ====================================================================================
 
-$modal--width: 550px;
-// $modal--width-large: 400;
-$modal--border-radius: 6px;
-
 .c-modal {
   z-index: 20;
   justify-content: center;
@@ -24,11 +20,15 @@ $modal--border-radius: 6px;
   margin-bottom: rem($unit / 2);
 }
 
+.c-modal_footer {
+  text-align: right;
+  margin-top: rem($modal--footer-margin-top);
+}
+
 // Buttons
 // ====================================================================================
 
 .c-modal_btn {
-  text-align: right;
   &:not(:last-child) {
     margin-right: rem($unit / 2);
   }
