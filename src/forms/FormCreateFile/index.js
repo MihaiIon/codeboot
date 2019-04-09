@@ -4,7 +4,7 @@ import cn from "classnames-helper";
 
 // Components
 import { Formik, Field, Form } from "formik";
-import { Label, ModalFooter } from "../../components-ui";
+import { Label, ModalFooter, InfoBubblePopoverHighlight as Highlight } from "../../components-ui";
 
 // Helpers
 import { filenameValidation, collaboratorsValidation } from "./core/helpers";
@@ -13,7 +13,7 @@ function FormCreateFile({ onSubmit }) {
   return (
     <Formik
       initialValues={{
-        filename: "lala",
+        filename: "",
         collaborators: ""
       }}
       onSubmit={({ filename, collaborators }, actions) => {
@@ -29,18 +29,37 @@ function FormCreateFile({ onSubmit }) {
 
         // Submit
         if (isFilenameValid && isCollaboratorsValid) {
-          onSubmit();
+          onSubmit(filename, collaborators.trim());
         } else {
           actions.setSubmitting(false);
         }
       }}
       render={({ errors, isSubmitting }) => (
         <Form>
-          <Label text="Script Name" infoContent="lala" />
+          <Label
+            text="Script Name"
+            infoContent={
+              <div>
+                Each <Highlight>Javascript</Highlight> script file should end with the extension:{" "}
+                <Highlight>js</Highlight>.
+              </div>
+            }
+            infoPreferPlace="right"
+          />
           <Field type="text" name="filename" className={cn("o-input", errors.filename)} />
-          <Label optional text="Author(s)" infoContent="lala" />
+          <Label
+            optional
+            text="Collaborator(s)"
+            infoContent={
+              <div>
+                If there is more than <Highlight>1 collaborator</Highlight>, separate each name by a
+                comma ( <Highlight>,</Highlight> ).
+              </div>
+            }
+            infoPreferPlace="right"
+          />
           <Field type="text" name="collaborators" className={cn("o-input", errors.collaborators)} />
-          <ModalFooter cancel isSubmitting={isSubmitting} />
+          <ModalFooter cancel submitText="Create Script" isSubmitting={isSubmitting} />
         </Form>
       )}
     />
