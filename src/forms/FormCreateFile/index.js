@@ -39,10 +39,15 @@ function FormCreateFile({ onSubmit }) {
           <Label
             text="Script Name"
             infoContent={
-              <div>
-                Each <Highlight>Javascript</Highlight> script file should end with the extension:{" "}
-                <Highlight>js</Highlight>.
-              </div>
+              <ul>
+                <li>
+                  Each <Highlight>Javascript</Highlight> script file should end with the extension:{" "}
+                  <Highlight>js</Highlight>.
+                </li>
+                <li>
+                  The filename should not contain any <Highlight>spaces</Highlight>.
+                </li>
+              </ul>
             }
             infoPreferPlace="right"
           />

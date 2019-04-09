@@ -8,9 +8,10 @@ $white: #ffffff;
 $gray: rgb(196, 196, 196);
 $gray-light: lighten($gray, 15%);
 $gray-dark: darken($gray, 35%);
-$gray-darker: darken($gray, 55%);
-$dark: #131313;
+$gray-darker: darken($gray, 52%);
+
 $black: #000000;
+$dark: lighten($black, 12%);
 
 // Specific
 // ===========================================================================================================

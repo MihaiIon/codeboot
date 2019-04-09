@@ -27,6 +27,14 @@
     color: $white;
     padding: rem($unit);
     background-color: $dark;
+
+    & ul {
+      padding-left: rem($unit);
+      list-style-type: disc;
+    }
+    & li {
+      margin-bottom: rem($unit / 2);
+    }
   }
   & .Popover-tip {
     color: $dark;
