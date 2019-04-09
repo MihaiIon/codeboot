@@ -1,34 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { AppContext } from "../../../components/App";
-
-function ModalSubmitBtn({ text, onSubmit }) {
+function ModalSubmitBtn({ text, closeModal, disabled }) {
   return (
-    <AppContext.Consumer>
-      {({ closeModal }) => (
-        <button
-          type="submit"
-          className="c-modal_btn o-btn -main"
-          onClick={() => {
-            onSubmit();
-            closeModal();
-          }}
-        >
-          {text}
-        </button>
-      )}
-    </AppContext.Consumer>
+    <button
+      type="submit"
+      className="c-modal_btn o-btn -main"
+      onClick={() => {
+        closeModal();
+      }}
+      disabled={disabled}
+    >
+      {text}
+    </button>
   );
 }
 
-ModalSubmitBtn.defaultProps = {
-  text: "Submit"
-};
-
 ModalSubmitBtn.propTypes = {
-  text: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired
+  disabled: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired
 };
 
 export default ModalSubmitBtn;

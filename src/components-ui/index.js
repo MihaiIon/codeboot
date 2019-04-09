@@ -9,5 +9,4 @@ export { default as Splitter } from "./Splitter";
 
 // Modal
 export { default as Modal } from "./Modal";
-export { default as ModalCancelBtn } from "./Modal/components/ModalCancelBtn";
-export { default as ModalSubmitBtn } from "./Modal/components/ModalSubmitBtn";
+export { default as ModalFooter } from "./Modal/components/ModalFooter";
