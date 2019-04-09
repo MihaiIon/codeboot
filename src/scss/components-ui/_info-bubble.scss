@@ -1,0 +1,39 @@
+// ====================================================================================
+// Components-ui / Info-bubble
+// ====================================================================================
+
+.c-info-bubble {
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
+.c-info-bubble_icon {
+  width: rem($info-bubble--size);
+  height: rem($info-bubble--size);
+  color: $default-color;
+  .t-novice & {
+    color: $novice-color;
+  }
+}
+
+// Popover
+// ====================================================================================
+
+.c-info-bubble-popover {
+  z-index: 1000;
+  max-width: rem($info-bubble--popover-max-width);
+  & .Popover-body {
+    font-weight: $light;
+    color: $white;
+    padding: rem($unit);
+    background-color: $dark;
+  }
+  & .Popover-tip {
+    color: $dark;
+  }
+}
+
+.c-info-bubble-popover_highlight {
+  color: $popover-highlight;
+  font-weight: $bold;
+}
