@@ -5,20 +5,21 @@
 // Palette
 // ===========================================================================================================
 $white: #ffffff;
-$black: #000000;
 $gray: rgb(182, 182, 182);
-$gray-light: rgb(232, 238, 242);
-$gray-dark: #383838;
-$gray-darker: darken($gray-dark, 10%);
+$gray-light: lighten($gray, 20%);
+$gray-dark: darken($gray, 40%);
+$gray-darker: darken($gray-dark, 12%);
+$dark: #131313;
+$black: #000000;
 
 // Specific
 // ===========================================================================================================
 // Main
-$novice-color: #28a1bb;
-$novice-color-dark: darken($novice-color, 15%);
+$novice-color: #0e8c9c;
+$novice-color-dark: darken($novice-color, 12%);
 $novice-color-light: lighten($novice-color, 15%);
 $default-color: #e2653f;
-$default-color-dark: darken($default-color, 15%);
+$default-color-dark: darken($default-color, 12%);
 $default-color-light: lighten($default-color, 15%);
 
 $success: #32cd70;
