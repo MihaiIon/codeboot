@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 
 // Components
-import ModalCancelBtn from "./ModalCancelBtn";
-import ModalSubmitBtn from "./ModalSubmitBtn";
+import ModalButton from "./ModalButton";
 
 // Contexts
 import { AppContext } from "../../../components/App";
@@ -13,8 +12,8 @@ function ModalFooter({ cancel, cancelText, submitText, isSubmitting }) {
     <AppContext.Consumer>
       {({ closeModal }) => (
         <footer className="c-modal_footer">
-          {cancel && <ModalCancelBtn text={cancelText} closeModal={closeModal} />}
-          <ModalSubmitBtn text={submitText} closeModal={closeModal} disabled={isSubmitting} />
+          {cancel && <ModalButton text={cancelText} action={closeModal} />}
+          <ModalButton submit text={submitText} disabled={isSubmitting} />
         </footer>
       )}
     </AppContext.Consumer>
