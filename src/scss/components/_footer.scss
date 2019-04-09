@@ -13,7 +13,7 @@
 
   width: 100%;
   height: rem($footer--height);
-  background-color: $gray-dark;
+  background-color: $gray-darker;
 }
 
 // Navigation
@@ -38,7 +38,7 @@
   color: $white;
   font-weight: 200;
   font-size: rem($font-size * 0.85);
-  background-color: $gray-darker;
+  background-color: $dark;
   transition: background-color $speed;
 
   &:hover,

@@ -5,25 +5,29 @@
 // Palette
 // ===========================================================================================================
 $white: #ffffff;
+$gray: rgb(196, 196, 196);
+$gray-light: lighten($gray, 15%);
+$gray-dark: darken($gray, 35%);
+$gray-darker: darken($gray, 52%);
+
 $black: #000000;
-$gray: rgb(182, 182, 182);
-$gray-light: rgb(232, 238, 242);
-$gray-dark: #383838;
-$gray-darker: darken($gray-dark, 10%);
+$dark: lighten($black, 12%);
 
 // Specific
 // ===========================================================================================================
 // Main
-$novice-color: #28a1bb;
-$novice-color-dark: darken($novice-color, 15%);
+$novice-color: #15a3b6;
+$novice-color-dark: darken($novice-color, 12%);
 $novice-color-light: lighten($novice-color, 15%);
 $default-color: #e2653f;
-$default-color-dark: darken($default-color, 15%);
+$default-color-dark: darken($default-color, 12%);
 $default-color-light: lighten($default-color, 15%);
 
 $success: #32cd70;
 $warning: #fbc146;
 $danger: rgb(226, 81, 98);
+
+$popover-highlight: #ffdb00;
 
 // Link
 $link-color: #3297fd;

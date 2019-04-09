@@ -26,10 +26,10 @@ function Modal({ children, show, large, title }) {
             <a.aside
               style={props}
               className={cn("c-modal o-overlay", "o-layout -flex -middle", ["-large", large])}
-              onClick={closeModal}
+              // onClick={closeModal}
             >
               <div className="c-modal_box o-layout_item">
-                <header className="c-modal_header o-layout -flex">
+                <header className="c-modal_header">
                   <h2 className="c-modal_title">{title}</h2>
                   <button type="button" className="c-modal_close-btn" onClick={closeModal}>
                     <CloseIcon className="c-modal_close-btn_icon" color="current" />

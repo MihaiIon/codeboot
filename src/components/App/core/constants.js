@@ -42,7 +42,7 @@ export default {
   state: APP_STATE.IDLE,
   isOverlay: false,
   modal: {
-    isVisible: false,
+    title: null,
     content: null
   },
   splitter: {
