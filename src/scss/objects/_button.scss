@@ -4,8 +4,8 @@
 
 .o-btn {
   padding: rem($unit / 2) rem($unit);
-  border: solid 1px darken($gray-light, 5%);
-  border-radius: rem($button--border-raduis);
+  border: solid 1px lighten($gray, 5%);
+  border-radius: rem($border-radius);
   background-color: $gray-light;
   @include u-hocus {
     background-color: $gray;

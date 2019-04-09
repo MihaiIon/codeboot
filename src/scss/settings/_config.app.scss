@@ -5,10 +5,16 @@
 // General
 // ====================================================================================
 
+$border-radius: 3px;
+
 // Objects
 // ====================================================================================
 
-$border-radius: 3px;
+$form--label-font-size: 18px;
+$form--label-optional-font-size: 12px;
+$form--input-padding: $unit / 2;
+$form--input-margin-top: $unit / 3;
+$form--input-margin-bottom: $unit * 0.75;
 
 // App
 // ====================================================================================
@@ -45,13 +51,21 @@ $header--padding: $unit * 3;
 $header--btn-size: $unit * 2;
 $header--btn-border-radius: 4px;
 
+// Info Bubble
+// ====================================================================================
+
+$info-bubble--size: 20px;
+$info-bubble--popover-max-width: 350px;
+
 // Modal
 // ====================================================================================
 
 $modal--width: 550px;
 // $modal--width-large: 400;
+$modal--title-font-size: 12px;
 $modal--border-radius: 6px;
 $modal--footer-margin-top: $unit * 2;
+$modal--padding: $unit * 1.5;
 
 // Splitter
 // ====================================================================================
