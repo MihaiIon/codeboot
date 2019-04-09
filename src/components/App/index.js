@@ -22,18 +22,22 @@ function App() {
   const [settings, setSettings] = useState(initialState.settings);
   const [splitter, setSplitter] = useState(initialState.splitter);
   const [modal, setModal] = useState(initialState.modal);
+
   // Context
   const ctx = {
     state,
     splitter,
     settings,
+    // Settings
     setState: newState => setAppState(newState),
     setAnimationSpeed: speed => setSettings({ ...settings, animationSpeed: speed }),
     setDrawingWindowVisibility: bool => setSettings({ ...settings, showDrawingWindow: bool }),
     setPixelGridVisibility: bool => setSettings({ ...settings, showPixelGrid: bool }),
+    // Splitter
     setUserMode: mode => setSettings({ ...settings, userMode: mode }),
     setLayout: layout => setSplitter({ ...splitter, layout }),
     setEditorPosition: p => setSplitter({ ...splitter, editorPosition: p }),
+    // Modal
     closeModal: () => {
       setOverlayVisibility(false);
       setModal({ ...modal, isVisible: false });
@@ -43,6 +47,7 @@ function App() {
       setOverlayVisibility(true);
       setModal({ isVisible: true, content });
     },
+    // Overlay
     setOverlayVisibility
   };
 
