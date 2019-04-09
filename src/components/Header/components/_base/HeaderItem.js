@@ -1,41 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-// Helpers
 import cn from "classnames-helper";
 
-class HeaderItem extends Component {
-  // ------------------------------------------------------
-  // Methods
-
-  getComponentClassNames() {
-    const { transparent, green } = this.props;
-    return cn("c-header_btn", ["-green", green], ["-transparent", transparent]);
-  }
-
-  // ------------------------------------------------------
-  // Render
-
-  render() {
-    const { children } = this.props;
-    return (
-      <li className="c-header_item o-layout_item">
-        <button type="button" className={this.getComponentClassNames()}>
-          {children}
-        </button>
-      </li>
-    );
-  }
+function HeaderItem({ children, transparent, onClick }) {
+  return (
+    <li className="c-header_item o-layout_item">
+      <button
+        type="button"
+        className={cn("c-header_btn", ["-transparent", transparent])}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    </li>
+  );
 }
 
 HeaderItem.defaultProps = {
-  green: false,
   transparent: false
 };
 
 HeaderItem.propTypes = {
-  green: PropTypes.bool,
   transparent: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired
 };
 

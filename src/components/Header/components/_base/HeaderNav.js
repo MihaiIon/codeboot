@@ -1,25 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-// Helpers
 import cn from "classnames-helper";
 
-class HeaderNav extends Component {
-  // ------------------------------------------------------
-  // Methods
-
-  getComponentClassNames() {
-    const { linked } = this.props;
-    return cn("c-header_nav", "o-layout -flex -middle", ["-linked", linked]);
-  }
-
-  // ------------------------------------------------------
-  // Render
-
-  render() {
-    const { children } = this.props;
-    return <nav className={this.getComponentClassNames()}>{children}</nav>;
-  }
+function HeaderNav({ children, linked }) {
+  return (
+    <nav className={cn("c-header_nav", "o-layout -flex -middle", ["-linked", linked])}>
+      {children}
+    </nav>
+  );
 }
 
 HeaderNav.defaultProps = {
