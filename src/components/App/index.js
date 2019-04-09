@@ -21,6 +21,7 @@ function App() {
   const [isOverlay, setOverlayVisibility] = useState(initialState.isOverlay);
   const [settings, setSettings] = useState(initialState.settings);
   const [splitter, setSplitter] = useState(initialState.splitter);
+  const [isModal, setModalVisibility] = useState(false);
   const [modal, setModal] = useState(initialState.modal);
 
   // Context
@@ -40,12 +41,12 @@ function App() {
     // Modal
     closeModal: () => {
       setOverlayVisibility(false);
-      setModal({ ...modal, isVisible: false });
-      setTimeout(() => setModal({ content: null, isVisible: false }), SPEED);
+      setModalVisibility(false);
     },
-    openModalAndSetContent: content => {
+    openModalAndSetContent: (title = "", content) => {
       setOverlayVisibility(true);
-      setModal({ isVisible: true, content });
+      setModalVisibility(true);
+      setModal({ title, content });
     },
     // Overlay
     setOverlayVisibility
@@ -60,7 +61,9 @@ function App() {
         </main>
         <Footer />
         <Overlay isOverlay={isOverlay} />
-        <Modal show={modal.isVisible}>{modal.content}</Modal>
+        <Modal show={isModal} title={modal.title}>
+          {modal.content}
+        </Modal>
       </div>
     </AppContext.Provider>
   );
