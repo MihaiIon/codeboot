@@ -45,6 +45,10 @@ export default {
     title: null,
     content: null
   },
+  console: {
+    output: [],
+    history: []
+  },
   splitter: {
     layout: APP_SPLITTER_LAYOUT.CONSOLE_ONLY,
     editorPosition: APP_SPLITTER_EDITOR_POSITION.DOWN
