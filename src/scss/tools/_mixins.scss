@@ -215,3 +215,13 @@
   display: $display $important;
   visibility: visible $important;
 }
+
+// ====================================================================================
+
+@mixin u-unselectable() {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
