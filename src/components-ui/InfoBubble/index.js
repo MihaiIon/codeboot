@@ -14,6 +14,7 @@ function InfoBubble({ className, preferPlace, content }) {
       isOpen={isPopover}
       body={content}
       preferPlace={preferPlace}
+      tipSize={10}
     >
       <div
         className="c-info-bubble"
