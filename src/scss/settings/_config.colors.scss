@@ -8,25 +8,33 @@ $white: #ffffff;
 $gray: rgb(196, 196, 196);
 $gray-light: lighten($gray, 15%);
 $gray-dark: darken($gray, 35%);
-$gray-darker: darken($gray, 52%);
+$gray-darker: darken($gray, 56%);
 
 $black: #000000;
-$dark: lighten($black, 12%);
+$dark: lighten($black, 10%);
 
 // Specific
 // ===========================================================================================================
 // Main
-$novice-color: #15a3b6;
-$novice-color-dark: darken($novice-color, 12%);
-$novice-color-light: lighten($novice-color, 15%);
 $default-color: #e2653f;
 $default-color-dark: darken($default-color, 12%);
 $default-color-light: lighten($default-color, 15%);
+$novice-color: #139daf;
+$novice-color-dark: darken($novice-color, 12%);
+$novice-color-light: lighten($novice-color, 15%);
 
+// Console
+$console-default-color: red;
+$console-input-default-color: desaturate(darken($console-default-color, 10%), 25%);
+$console-novice-color: #ecfcfe;
+$console-input-novice-color: desaturate(darken($console-novice-color, 10%), 25%);
+
+// General
 $success: #32cd70;
 $warning: #fbc146;
 $danger: rgb(226, 81, 98);
 
+// Specific
 $popover-highlight: #ffdb00;
 
 // Link

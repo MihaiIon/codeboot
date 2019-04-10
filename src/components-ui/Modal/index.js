@@ -24,6 +24,7 @@ function Modal({ children, show, large, title }) {
         <AppContext.Consumer>
           {({ closeModal }) => (
             <a.aside
+              key="modal"
               style={props}
               className={cn("c-modal o-overlay", "o-layout -flex -middle", ["-large", large])}
               // onClick={closeModal}

@@ -13,13 +13,13 @@
 
   &.-main {
     color: $white;
-    border-color: $default-color;
+    border-color: darken($default-color, 5%);
     background-color: $default-color;
     @include u-hocus {
       background-color: $default-color-dark;
     }
     .t-novice & {
-      border-color: $novice-color;
+      border-color: darken($novice-color, 5%);
       background-color: $novice-color;
       @include u-hocus {
         background-color: $novice-color-dark;

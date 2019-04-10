@@ -1,0 +1,117 @@
+// ====================================================================================
+// Components / Console
+// ====================================================================================
+
+$console--padding: $unit;
+$console--font-size: 20px;
+$console--tip-size: $console--font-size + 4px;
+
+$console--aside-width: 150px;
+$console--title-font-size: 24px;
+$console--clear-btn-size: 60px;
+$console--clear-btn-icon-size: 40px;
+
+$console--input-wrapper-padding: $unit / 2;
+$console--input-margin-left: $console--font-size + $unit / 2;
+
+.c-console {
+  height: 100%;
+  position: relative;
+  background-color: $console-default-color;
+  .t-novice & {
+    background-color: $console-novice-color;
+  }
+}
+
+.c-console_title {
+  @include u-unselectable();
+
+  font-size: rem($console--title-font-size);
+  font-weight: $bold;
+  opacity: 0.35;
+
+  color: $default-color-dark;
+  .t-novice & {
+    color: $novice-color-dark;
+  }
+}
+
+.c-console_body {
+  margin-right: rem($console--aside-width);
+  padding: rem($console--padding);
+  padding-right: 0;
+}
+
+// Aside
+// ====================================================================================
+
+.c-console_aside {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  width: rem($console--aside-width);
+  padding: rem($console--padding);
+  text-align: center;
+}
+
+.c-console_aside_footer {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+$console--clear-btn-margin-bottom: $unit * 1.5;
+
+.c-console_clear-btn {
+  width: rem($console--clear-btn-size);
+  height: rem($console--clear-btn-size);
+  margin-bottom: rem($console--clear-btn-margin-bottom);
+
+  border-radius: 50%;
+  transition: $speed / 2 $easing;
+  box-shadow: 1px 2px 2px rgba($color: $black, $alpha: 0.3);
+
+  background-color: lighten($warning, 22%);
+  @include u-hocus {
+    background-color: lighten($warning, 15%);
+  }
+}
+
+.c-console_clear-btn_icon {
+  width: rem($console--clear-btn-icon-size);
+  height: rem($console--clear-btn-icon-size);
+  color: darken($warning, 30%);
+}
+
+// Input
+// ====================================================================================
+
+.c-console_input-wrapper {
+  padding: rem($console--input-wrapper-padding);
+  background-color: $console-input-novice-color;
+}
+
+.c-console_tip-icon {
+  width: rem($console--tip-size);
+  height: rem($console--tip-size);
+
+  position: absolute;
+  z-index: 1;
+
+  color: $default-color-dark;
+  .t-novice & {
+    color: $novice-color-dark;
+  }
+}
+
+.c-console_input {
+  display: block;
+  margin-left: rem($console--input-margin-left);
+  font-size: rem($console--font-size);
+}

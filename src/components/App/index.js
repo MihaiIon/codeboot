@@ -19,13 +19,17 @@ function App() {
   // States
   const [state, setAppState] = useState(initialState.state);
   const [isOverlay, setOverlayVisibility] = useState(initialState.isOverlay);
-  const [settings, setSettings] = useState(initialState.settings);
-  const [splitter, setSplitter] = useState(initialState.splitter);
   const [isModal, setModalVisibility] = useState(false);
   const [modal, setModal] = useState(initialState.modal);
+  const [consoleHistory, setConsoleHistory] = useState(initialState.console.history);
+  const [consoleOutput, setConsoleOutput] = useState(initialState.console.output);
+  const [settings, setSettings] = useState(initialState.settings);
+  const [splitter, setSplitter] = useState(initialState.splitter);
 
   // Context
   const ctx = {
+    consoleHistory,
+    consoleOutput,
     state,
     splitter,
     settings,
@@ -34,6 +38,12 @@ function App() {
     setAnimationSpeed: speed => setSettings({ ...settings, animationSpeed: speed }),
     setDrawingWindowVisibility: bool => setSettings({ ...settings, showDrawingWindow: bool }),
     setPixelGridVisibility: bool => setSettings({ ...settings, showPixelGrid: bool }),
+    // Console
+    pushToConsoleHistory: value => {
+      consoleHistory.push(value);
+      setConsoleHistory(consoleHistory);
+    },
+    pushToConsoleOutput: value => null,
     // Splitter
     setUserMode: mode => setSettings({ ...settings, userMode: mode }),
     setLayout: layout => setSplitter({ ...splitter, layout }),

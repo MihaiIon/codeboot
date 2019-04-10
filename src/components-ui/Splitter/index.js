@@ -1,21 +1,17 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import cn from "classnames-helper";
 
 // Components
 import SplitterHandle from "./components/SplitterHandle";
 import SplitterView from "./components/SplitterView";
 import CodeEditor from "../../components/CodeEditor";
+import Console from "../../components/Console";
 
 // Contexts
 import { AppContext } from "../../components/App";
 
 // Helpers
-import {
-  isEditorTop,
-  isEditorRight,
-  isEditorBottom,
-  isEditorLeft
-} from "../../components/App/core/helpers";
+import { isEditorTop, isEditorBottom, isEditorLeft } from "../../components/App/core/helpers";
 
 // Constants
 import { APP_SPLITTER_LAYOUT } from "../../components/App/core/constants";
@@ -32,7 +28,7 @@ function Splitter() {
         const isEditorFirst = isEditorTop(editorPosition) || isEditorLeft(editorPosition);
         switch (layout) {
           case APP_SPLITTER_LAYOUT.CONSOLE_ONLY:
-            return <Fragment />;
+            return <Console />;
           case APP_SPLITTER_LAYOUT.EDITOR_ONLY:
             return <CodeEditor />;
           default:
@@ -47,10 +43,10 @@ function Splitter() {
                   setPosition={setHandlePosition}
                 />
                 <SplitterView index={0} isHorizontal={isHorizontal} handlePosition={handlePosition}>
-                  {isEditorFirst ? <CodeEditor /> : <Fragment />}
+                  {isEditorFirst ? <CodeEditor /> : <Console />}
                 </SplitterView>
                 <SplitterView index={1} isHorizontal={isHorizontal} handlePosition={handlePosition}>
-                  {!isEditorFirst ? <CodeEditor /> : <Fragment />}
+                  {!isEditorFirst ? <CodeEditor /> : <Console />}
                 </SplitterView>
               </div>
             );

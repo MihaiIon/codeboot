@@ -27,12 +27,19 @@
 }
 
 .c-splitter_view {
-  position: relative;
+  position: absolute;
   .c-splitter.-horizontal & {
     width: 100%;
+    &:last-child {
+      bottom: 0;
+    }
   }
   .c-splitter.-vertical & {
     height: 100%;
+    top: 0;
+    &:last-child {
+      right: 0;
+    }
     display: inline-block;
   }
 }
