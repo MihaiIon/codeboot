@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import cn from "classnames-helper";
 
 // Components
 // import Header from "../Header";
-// import Footer from "../Footer";
+import Footer from "../Footer";
 import Overlay from "./components/Overlay";
 
 // Modules
@@ -11,7 +11,7 @@ import Overlay from "./components/Overlay";
 // import Modal from "../../modules/Modal";
 
 // Contexts
-import AppContext, { appContextValue } from "./contexts/AppContext";
+import AppContext, { getAppContextValue } from "./contexts/AppContext";
 import { FileSystemContext } from ".";
 
 // Helpers
@@ -26,7 +26,7 @@ function App() {
           {/* <main>
             <LayoutManager />
           </main> */}
-          {/* <Footer /> */}
+          <Footer />
           {/* <Modal show={modal.isVisible} title={modal.title}>
             {modal.content}
           </Modal> */}
@@ -39,7 +39,7 @@ function App() {
 
 function Root() {
   return (
-    <AppContext.Provider value={appContextValue}>
+    <AppContext.Provider value={getAppContextValue()}>
       <FileSystemContext.Provider>
         <App />
       </FileSystemContext.Provider>

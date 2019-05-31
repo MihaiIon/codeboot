@@ -10,9 +10,6 @@ import Console from "../../components/Console";
 // Contexts
 import { AppContext } from "../../components/App";
 
-// Helpers
-import { isEditorTop, isEditorBottom, isEditorLeft } from "../../components/App/core/helpers";
-
 // Constants
 import { LAYOUT_MANAGER__LAYOUT_SETTING } from ".";
 
@@ -23,9 +20,9 @@ function LayoutManager() {
   const [handlePosition, setHandlePosition] = useState(0.5);
   return (
     <AppContext.Consumer>
-      {({ splitter: { layout, editorPosition } }) => {
-        const isHorizontal = isEditorTop(editorPosition) || isEditorBottom(editorPosition);
-        const isEditorFirst = isEditorTop(editorPosition) || isEditorLeft(editorPosition);
+      {({ layoutManager: { layout }, isEditorTop, isEditorBottom, isEditorLeft }) => {
+        const isHorizontal = isEditorTop() || isEditorBottom();
+        const isEditorFirst = isEditorTop() || isEditorLeft();
         switch (layout) {
           case LAYOUT_MANAGER__LAYOUT_SETTING.CONSOLE_ONLY:
             return <Console />;
