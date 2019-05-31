@@ -1,40 +1,40 @@
 // ====================================================================================
-// Components / Splitter
+// Modules / Splitter
 // ====================================================================================
 
-.c-splitter {
+.c-layout-manager {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.c-splitter_handle {
+.c-layout-manager_handle {
   z-index: 5;
   position: absolute;
   cursor: -webkit-grabbing;
   cursor: grabbing;
   background-color: $gray-dark;
 
-  .c-splitter.-horizontal & {
+  .c-layout-manager.-horizontal & {
     width: 100%;
     height: $splitter--handle-size;
   }
-  .c-splitter.-vertical & {
+  .c-layout-manager.-vertical & {
     top: 0;
     bottom: 0;
     width: $splitter--handle-size;
   }
 }
 
-.c-splitter_view {
+.c-layout-manager_view {
   position: absolute;
-  .c-splitter.-horizontal & {
+  .c-layout-manager.-horizontal & {
     width: 100%;
     &:last-child {
       bottom: 0;
     }
   }
-  .c-splitter.-vertical & {
+  .c-layout-manager.-vertical & {
     height: 100%;
     top: 0;
     &:last-child {

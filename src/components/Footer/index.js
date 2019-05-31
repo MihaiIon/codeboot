@@ -8,7 +8,10 @@ import Item from "./components/FooterItem";
 import { AppContext } from "../App";
 
 // Constants
-import { APP_SPLITTER_LAYOUT, APP_SPLITTER_EDITOR_POSITION } from "../App/core/constants";
+import {
+  LAYOUT_MANAGER__LAYOUT_SETTING,
+  LAYOUT_MANAGER__EDITOR_POSITION
+} from "../../modules/LayoutManager";
 
 // Helpers
 import {
@@ -33,13 +36,19 @@ import {
 const renderLayoutNavigation = (layout, setLayout) => {
   return (
     <Navigation>
-      <Item active={isBoth(layout)} action={() => setLayout(APP_SPLITTER_LAYOUT.BOTH)}>
+      <Item active={isBoth(layout)} action={() => setLayout(LAYOUT_MANAGER__LAYOUT_SETTING.BOTH)}>
         Split
       </Item>
-      <Item active={isConsole(layout)} action={() => setLayout(APP_SPLITTER_LAYOUT.CONSOLE_ONLY)}>
+      <Item
+        active={isConsole(layout)}
+        action={() => setLayout(LAYOUT_MANAGER__LAYOUT_SETTING.CONSOLE_ONLY)}
+      >
         Console
       </Item>
-      <Item active={isEditor(layout)} action={() => setLayout(APP_SPLITTER_LAYOUT.EDITOR_ONLY)}>
+      <Item
+        active={isEditor(layout)}
+        action={() => setLayout(LAYOUT_MANAGER__LAYOUT_SETTING.EDITOR_ONLY)}
+      >
         Code Editor
       </Item>
     </Navigation>

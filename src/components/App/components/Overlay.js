@@ -11,7 +11,7 @@ function Overlay({ isOverlay }) {
     leave: { opacity: "0" }
   });
   return transitions.map(
-    ({ item, props }) => item && <a.aside key="overlay" className="o-overlay" style={props} />
+    ({ item, props }) => item && <a.aside key="app_overlay" className="o-overlay" style={props} />
   );
 }
 

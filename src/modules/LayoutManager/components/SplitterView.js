@@ -28,7 +28,7 @@ const getStyles = (isHorizontal, index, handlePosition) => {
 function SplitterView({ children, isHorizontal, index, handlePosition }) {
   return (
     <div
-      className={`c-splitter_view -${index}`}
+      className={`c-layout-manager_view -${index}`}
       style={getStyles(isHorizontal, index, handlePosition)}
     >
       {children}

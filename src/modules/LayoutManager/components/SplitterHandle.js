@@ -35,7 +35,7 @@ function SplitterHandle({ isHorizontal, position, setPosition }) {
     handleRef.current.style.top = top;
     handleRef.current.style.left = left;
   });
-  return <button type="button" className="c-splitter_handle" ref={handleRef} />;
+  return <button type="button" className="c-layout-manager_handle" ref={handleRef} />;
 }
 
 SplitterHandle.propTypes = {
