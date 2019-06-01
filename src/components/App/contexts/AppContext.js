@@ -27,6 +27,14 @@ export function getAppContextValue() {
   // State
   // ------------------------------------------------------
   const [state, setAppState] = useState(APP__STATE.IDLE);
+  // Settings
+  // ------------------------------------------------------
+  const [settings, setSettings] = useState({
+    animationSpeed: APP__ANIMATION_SPEED.NORMAL,
+    userMode: APP__USER_MODE.NOVICE,
+    isDrawingWindow: false,
+    isPixelGrid: false
+  });
   // Overlay
   // ------------------------------------------------------
   const [isOverlay, setOverlayState] = useState(false);
@@ -43,6 +51,9 @@ export function getAppContextValue() {
     layout: LAYOUT_MANAGER__LAYOUT_SETTING.CONSOLE_ONLY,
     editorPosition: LAYOUT_MANAGER__EDITOR_POSITION.BOTTOM
   });
+  // Console
+  // ------------------------------------------------------
+  const [consoleHistory, setConsoleHistory] = useState([]);
 
   return {
     // State
@@ -54,6 +65,10 @@ export function getAppContextValue() {
     setAppStateToExecutingCodeWithSteps: () => setAppState(APP__STATE.EXECUTING_CODE_WITH_STEPS),
     setAppStateToExecutingCodeWithAnimations: () =>
       setAppState(APP__STATE.EXECUTING_CODE_WITH_ANIMATIONS),
+    // Settings
+    // ------------------------------------------------------
+    settings,
+    isUserNovice: () => settings.userMode === APP__USER_MODE.NOVICE,
     // Overlay
     // ------------------------------------------------------
     isOverlay,
@@ -62,14 +77,13 @@ export function getAppContextValue() {
     // Modal
     // ------------------------------------------------------
     modal,
-    showModal: (title, content) => setModalState({ isVisible: true, title, content }),
-    hideModal: () => setModalState(currState => ({ ...currState, isVisible: false })),
-    // Modal
-    // ------------------------------------------------------
-
-    console: {
-      output: [],
-      history: []
+    showModal: (title, content) => {
+      setOverlayState(true);
+      setModalState({ isVisible: true, title, content });
+    },
+    hideModal: () => {
+      setOverlayState(false);
+      setModalState(currState => ({ ...currState, isVisible: false }));
     },
     // Layout Manager
     // ------------------------------------------------------
@@ -98,73 +112,16 @@ export function getAppContextValue() {
       setLayoutManager(({ layout }) => ({ layout, editorPosition: EDITOR_BOTTOM })),
     setEditorToLeft: () =>
       setLayoutManager(({ layout }) => ({ layout, editorPosition: EDITOR_LEFT })),
-    // Settings
+    // Console
     // ------------------------------------------------------
-    settings: {
-      animationSpeed: APP__ANIMATION_SPEED.NORMAL,
-      userMode: APP__USER_MODE.NOVICE,
-      isDrawingWindow: false,
-      isPixelGrid: false
-    }
+    consoleHistory,
+    pushToConsoleHistory: value =>
+      setConsoleHistory(history => {
+        const tmp = history.length > 50 ? history.slice(25) : history;
+        tmp.push(value);
+        return tmp;
+      })
   };
-
-  // Console
-  // ------------------------------------------------------
-  //   console: {
-  //     output: [],
-  //     history: []
-  //   },
-
-  //   // Settings
-  //   // ------------------------------------------------------
-  //   settings: {
-  //     animationSpeed: APP__ANIMATION_SPEED.NORMAL,
-  //     userMode: APP__USER_MODE.NOVICE,
-  //     isDrawingWindow: false,
-  //     isPixelGrid: false
-  //   }
-  // };
 }
 
 export default React.createContext();
-
-// // States
-// const [isOverlay, setOverlayVisibility] = useState(initialState.isOverlay);
-// const [isModal, setModalVisibility] = useState(false);
-// const [modal, setModal] = useState(initialState.modal);
-// const [consoleHistory, setConsoleHistory] = useState(initialState.console.history);
-// const [consoleOutput, setConsoleOutput] = useState(initialState.console.output);
-// const [settings, setSettings] = useState(initialState.settings);
-// const [splitter, setSplitter] = useState(initialState.splitter);
-
-// // Context
-// const ctx = {
-//   consoleHistory,
-//   consoleOutput,
-//   splitter,
-//   settings,
-//   // Settings
-//   setAnimationSpeed: speed => setSettings({ ...settings, animationSpeed: speed }),
-//   setDrawingWindowVisibility: bool => setSettings({ ...settings, showDrawingWindow: bool }),
-//   setPixelGridVisibility: bool => setSettings({ ...settings, showPixelGrid: bool }),
-//   // Console
-//   pushToConsoleHistory: value => {
-//     consoleHistory.push(value);
-//     setConsoleHistory(consoleHistory);
-//   },
-//   pushToConsoleOutput: value => null,
-//   // Splitter
-//   setUserMode: mode => setSettings({ ...settings, userMode: mode }),
-//   setLayout: layout => setSplitter({ ...splitter, layout }),
-//   setEditorPosition: p => setSplitter({ ...splitter, editorPosition: p }),
-//   // Modal
-//   closeModal: () => {
-//     setOverlayVisibility(false);
-//     setModalVisibility(false);
-//   },
-//   openModalAndSetContent: (title = "", content) => {
-//     setOverlayVisibility(true);
-//     setModalVisibility(true);
-//     setModal({ title, content });
-//   },
-// };

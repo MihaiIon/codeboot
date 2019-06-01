@@ -2,27 +2,24 @@ import React from "react";
 
 // Components
 import Item from "./_base/HeaderItem";
-import { FormCreateFile } from "../../../forms";
+import FormCreateFile from "../../../forms/FormCreateFile";
 
 // Contexts
 import { AppContext } from "../../App";
 
-// Constants
-import { APP_SPLITTER_LAYOUT } from "../../App/core/constants";
-
 function NewFile() {
   return (
     <AppContext.Consumer>
-      {({ openModalAndSetContent, closeModal, setLayout }) => (
+      {({ showModal, hideModal, setLayoutToSplit }) => (
         <Item
           transparent
           onClick={() =>
-            openModalAndSetContent(
+            showModal(
               "new script file",
               <FormCreateFile
                 onSubmit={() => {
-                  closeModal();
-                  setLayout(APP_SPLITTER_LAYOUT.BOTH);
+                  hideModal();
+                  setLayoutToSplit();
                 }}
               />
             )

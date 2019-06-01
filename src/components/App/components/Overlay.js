@@ -2,21 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Components
-import { animated as a, useTransition } from "react-spring";
+import { animated as a, Transition } from "react-spring/renderprops";
 
-function Overlay({ isOverlay }) {
-  const transitions = useTransition(isOverlay, null, {
-    from: { opacity: "0" },
-    enter: { opacity: "1" },
-    leave: { opacity: "0" }
-  });
-  return transitions.map(
-    ({ item, props }) => item && <a.aside key="app_overlay" className="o-overlay" style={props} />
+function Overlay({ show }) {
+  return (
+    <Transition items={show} from={{ opacity: 0 }} leave={{ opacity: 0 }} enter={{ opacity: 1 }}>
+      {isOverlay => props =>
+        isOverlay && <a.aside key="app_overlay" className="o-overlay" style={props} />}
+    </Transition>
   );
 }
 
 Overlay.propTypes = {
-  isOverlay: PropTypes.bool.isRequired
+  show: PropTypes.bool.isRequired
 };
 
 export default Overlay;

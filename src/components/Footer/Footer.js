@@ -1,11 +1,11 @@
 import React from "react";
 
 // Components
-import FooterLayoutNavigation from "./components/FooterLayoutNavigation";
+import LayoutNavigation from "./components/FooterLayoutNavigation";
+import EditorPositionNavigation from "./components/FooterEditorPositionNavigation";
 
 // Contexts
 import { AppContext } from "../App";
-import FooterEditorPositionNavigation from "./components/FooterEditorPositionNavigation";
 
 // Footer
 // ====================================================================================
@@ -31,7 +31,7 @@ function Footer() {
         setEditorToLeft
       }) => (
         <footer className="c-footer o-wrapper">
-          <FooterLayoutNavigation
+          <LayoutNavigation
             isEditorOnly={isEditorOnly}
             isConsoleOnly={isConsoleOnly}
             isLayoutSplit={isLayoutSplit}
@@ -39,7 +39,7 @@ function Footer() {
             setLayoutToConsoleOnly={setLayoutToConsoleOnly}
             setLayoutToSplit={setLayoutToSplit}
           />
-          <FooterEditorPositionNavigation
+          <EditorPositionNavigation
             isLayoutSplit={isLayoutSplit}
             isEditorTop={isEditorTop}
             isEditorRight={isEditorRight}

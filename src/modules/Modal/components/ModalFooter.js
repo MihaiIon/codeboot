@@ -10,10 +10,15 @@ import { AppContext } from "../../../components/App";
 function ModalFooter({ cancel, cancelText, submitText, isSubmitting }) {
   return (
     <AppContext.Consumer>
-      {({ closeModal }) => (
+      {({ hideModal }) => (
         <footer className="c-modal_footer">
-          {cancel && <ModalButton text={cancelText} action={closeModal} />}
-          <ModalButton submit text={submitText} disabled={isSubmitting} />
+          {cancel && <ModalButton text={cancelText} action={hideModal} />}
+          <ModalButton
+            submit
+            text={submitText}
+            disabled={isSubmitting}
+            action={() => hideModal()}
+          />
         </footer>
       )}
     </AppContext.Consumer>

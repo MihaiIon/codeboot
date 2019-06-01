@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // Components
-import { InfoBubble } from "..";
+import InfoBubble from "../InfoBubble";
 
 function Label({ optional, htmlFor, text, infoContent, infoPreferPlace }) {
   return (
