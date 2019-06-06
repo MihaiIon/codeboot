@@ -3,41 +3,43 @@ import PropTypes from "prop-types";
 
 // Component
 import AddIcon from "react-ionicons/lib/MdAdd";
-import CodeEditorTab from "./_base/CodeEditorTab";
+import Tab from "./_base/CodeEditorTab";
 
-class CodeEditorNav extends Component {
-  render() {
-    const { files } = this.props;
-    const { addScript, removeScript, setTabActive } = this.props;
-    return (
-      <nav className="c-code-editor_nav o-wrapper">
-        {/* <div>File menu : TODO</div> */}
-        <ul className="c-code-editor_tabs-list">
-          {/* {files.map(({ id, filename, isActive }) => (
-            <CodeEditorTab
-              key={`${id}-${filename}`}
-              filename={filename}
-              active={isActive}
-              onClick={() => setTabActive(id)}
-              onClose={() => removeScript(id)}
-            />
-          ))} */}
-          <CodeEditorTab active filename="filename.js" />
-          <CodeEditorTab filename="filename_2.js" />
-        </ul>
-        <button className="c-code-editor_add-btn" type="button" onClick={() => null}>
-          <AddIcon className="c-code-editor_add-btn_icon" color="currentColor" />
-        </button>
-      </nav>
-    );
-  }
+function CodeEditorNavigation({ files, activeFileIndex, createFile, deleteFileById }) {
+  return (
+    <nav className="c-code-editor_nav o-wrapper">
+      {/* <div>File menu : TODO</div> */}
+      <ul className="c-code-editor_tabs-list">
+        {files.map((file, index) => (
+          <Tab
+            key={file.filename}
+            filename={file.filename}
+            active={activeFileIndex === index}
+            onClick={() => null}
+            onClose={() => null}
+          />
+        ))}
+      </ul>
+      <button className="c-code-editor_add-btn" type="button" onClick={() => null}>
+        <AddIcon className="c-code-editor_add-btn_icon" color="currentColor" />
+      </button>
+    </nav>
+  );
 }
 
-CodeEditorNav.propTypes = {
-  scripts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  addScript: PropTypes.func.isRequired,
-  removeScript: PropTypes.func.isRequired,
-  closeTab: PropTypes.func.isRequired
+CodeEditorNavigation.propTypes = {
+  activeFileIndex: PropTypes.number.isRequired,
+  createFile: PropTypes.func.isRequired,
+  deleteFileById: PropTypes.func.isRequired,
+  files: PropTypes.arrayOf(
+    PropTypes.shape({
+      tabIndex: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      extension: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      collaborators: PropTypes.arrayOf(PropTypes.string).isRequired
+    })
+  ).isRequired
 };
 
-export default CodeEditorNav;
+export default CodeEditorNavigation;

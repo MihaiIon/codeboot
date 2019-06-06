@@ -15,17 +15,6 @@
   background-color: $white;
 }
 
-.c-modal_btn {
-  &:not(:last-child) {
-    margin-right: rem($unit / 2);
-  }
-}
-
-.c-modal_footer {
-  text-align: right;
-  margin-top: rem($modal--footer-margin-top);
-}
-
 // Header
 // ====================================================================================
 

@@ -51,7 +51,8 @@
     "react-scripts": "2.1.8",
     "react-spring": "^8.0.18",
     "react-with-gesture": "^4.0.8",
-    "uniqid": "^5.0.3"
+    "uniqid": "^5.0.3",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",

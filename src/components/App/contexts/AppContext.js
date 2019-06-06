@@ -4,6 +4,12 @@
 
 import React, { useState } from "react";
 
+// Components
+import FormCreateFile from "../../../forms/FormCreateFile";
+
+// Contexts
+import FileSystemContext, { File } from "./FileSystemContext";
+
 // Constants
 import { APP__STATE, APP__ANIMATION_SPEED, APP__USER_MODE } from "../core/constants";
 import {
@@ -77,14 +83,47 @@ export function getAppContextValue() {
     // Modal
     // ------------------------------------------------------
     modal,
-    showModal: (title, content) => {
-      setOverlayState(true);
-      setModalState({ isVisible: true, title, content });
-    },
     hideModal: () => {
       setOverlayState(false);
       setModalState(currState => ({ ...currState, isVisible: false }));
     },
+    showCreateFileModal: () => {
+      setOverlayState(true);
+      setModalState({
+        isVisible: true,
+        title: "create script",
+        content: (
+          <FileSystemContext.Consumer>
+            {({ setFileSystem }) => (
+              <FormCreateFile
+                onSubmit={(filename, collaborators) => {
+                  setFileSystem(({ files, length }) => {
+                    const tmp = filename.split(".");
+                    files.push(
+                      new File(length, tmp[0], tmp[1], "", collaborators.split(", ").join("\n"))
+                    );
+                    return {
+                      length: length + 1,
+                      activeFileIndex: length,
+                      files
+                    };
+                  });
+                  setOverlayState(false);
+                  setModalState(currState => ({ ...currState, isVisible: false }));
+                  if (layoutManager.layout !== LAYOUT_SPLIT) {
+                    setLayoutManager(({ editorPosition }) => ({
+                      editorPosition,
+                      layout: LAYOUT_SPLIT
+                    }));
+                  }
+                }}
+              />
+            )}
+          </FileSystemContext.Consumer>
+        )
+      });
+    },
+
     // Layout Manager
     // ------------------------------------------------------
     layoutManager,

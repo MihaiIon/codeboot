@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // Components
 import InfoBubble from "../InfoBubble";
 
-function Label({ optional, htmlFor, text, infoContent, infoPreferPlace }) {
+function Label({ optional, htmlFor, text, infoContent, infoPreferedPlace }) {
   return (
     <div className="o-label-wrapper">
       <label className="o-label" htmlFor={htmlFor}>
@@ -16,7 +16,7 @@ function Label({ optional, htmlFor, text, infoContent, infoPreferPlace }) {
         <InfoBubble
           className="o-label_info-bubble"
           content={infoContent}
-          preferPlace={infoPreferPlace}
+          preferPlace={infoPreferedPlace}
         />
       )}
     </div>
@@ -26,13 +26,13 @@ function Label({ optional, htmlFor, text, infoContent, infoPreferPlace }) {
 Label.defaultProps = {
   optional: false,
   infoContent: null,
-  infoPreferPlace: "above"
+  infoPreferedPlace: "above"
 };
 
 Label.propTypes = {
   optional: PropTypes.bool,
   htmlFor: PropTypes.string.isRequired,
-  infoPreferPlace: PropTypes.string,
+  infoPreferedPlace: PropTypes.string,
   text: PropTypes.string.isRequired,
   infoContent: PropTypes.node
 };

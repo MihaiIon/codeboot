@@ -2,26 +2,31 @@
 // Modules / Code Editor / Core / Context
 // ====================================================================================
 
-import React from "react";
+import React, { useState } from "react";
 
 // File Class
 // ====================================================================================
 
-class File {
+export class File {
   /**
-   *
-   * @param {*} tabIndex Position in the files array
-   * @param {*} name
-   * @param {*} extension
-   * @param {*} collaborators
-   * @param {*} content
+   * TODO
+   * @param {Number} tabIndex Position in the files array
+   * @param {String} name File's name
+   * @param {String} extension File's extension
+   * @param {String} value
+   * @param {[String]} collaborators Array of collaborators names
    */
-  constructor(tabIndex, name, extension, content, collaborators) {
+  constructor(tabIndex, name, extension, collaborators, value) {
     this.tabIndex = tabIndex;
     this.name = name;
     this.extension = extension;
-    this.content = content;
     this.collaborators = collaborators;
+    if (value.length === 0) {
+      this.value =
+        collaborators.length === 0 ? "" : collaborators.map(str => `\\/\\/ ${str}`).join("\n");
+    } else {
+      this.value = value;
+    }
   }
 
   get filename() {
@@ -32,64 +37,64 @@ class File {
 // File System Context
 // ====================================================================================
 
-const value = {
-  length: 0,
-  loadedFile: null,
-  files: [],
+export function getFileSystemContextValue() {
+  const [fileSystem, setFileSystem] = useState({
+    length: 0,
+    activeFileIndex: -1,
+    files: []
+  });
 
-  /**
-   * Removes the file with the specified 'id' from the file system. This will also
-   * remove the tab associated with that file.
-   *
-   * @param {Number} id Id of the file to be deleted (removed from codeBoot).
-   */
-  deleteFileById(id) {
-    const { files, length } = this;
-    // Check if id is inbounds
-    if (id < 0 || id >= length) {
-      throw new Error(`FileSystemContext | User tried to delete the file with id '${id}'.`);
-    }
-
-    // Reorder tabs
-    this.files.forEach(file => {
-      if (file.tabIndex > this.files[id].tabIndex) {
-        file.tabIndex -= 1;
+  return {
+    ...fileSystem,
+    setFileSystem,
+    /**
+     * Removes the file with the specified 'id' from the file system. This will also
+     * remove the tab associated with that file.
+     *
+     * @param {Number} id Id of the file to be deleted (removed from codeBoot).
+     */
+    deleteFileById(id) {
+      let { files, length, activeFileIndex } = fileSystem;
+      // Check if id is inbounds
+      if (id < 0 || id >= length) {
+        throw new Error(`FileSystemContext | User tried to delete the file with id '${id}'.`);
       }
-    });
 
-    // Remove file
-    if (id === 0) this.files.shift();
-    else if (id === length - 1) this.files.pop();
-    else this.files = files.slice(0, id - 1).concat(files.slice(id));
+      // Reorder tabs
+      files.forEach(file => {
+        if (file.tabIndex > files[id].tabIndex) {
+          file.tabIndex -= 1;
+        }
+      });
 
-    // Adjust length.
-    this.length -= 1;
-  },
+      // Fix loaded file
+      if (activeFileIndex === length - 1 || activeFileIndex > id) {
+        activeFileIndex -= 1;
+      }
 
-  /**
-   * Create a file and add it the the file system (also creates a tab).
-   *
-   * @param {String} name File name
-   * @param {String} extension File extension
-   * @param {[String]} collaborators Array for collaborators names
-   */
-  createFile(name, extension, collaborators = []) {
-    this.files.push(
-      new File(
-        this.length,
-        name,
-        extension,
-        collaborators.reduce((content, collaborator) => `${content}// ${collaborator}\n`, ""),
-        collaborators
-      )
-    );
-    this.length += 1;
-  },
+      // Remove file
+      if (id === 0) files.shift();
+      else if (id === length - 1) files.pop();
+      else files = files.slice(0, id - 1).concat(files.slice(id));
 
-  /**
-   * TODO.
-   */
-  loadfilesFromLocalStorage() {}
-};
+      // Adjust length & Update
+      length -= 1;
+      setFileSystem({ files, length, activeFileIndex });
+    },
 
-export default React.createContext(value);
+    /**
+     * TODO.
+     */
+    loadfilesFromLocalStorage() {},
+
+    /**
+     *
+     */
+    getActiveFileValue() {
+      const { files, activeFileIndex } = fileSystem;
+      return activeFileIndex < 0 ? null : files[activeFileIndex].value;
+    }
+  };
+}
+
+export default React.createContext();

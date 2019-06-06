@@ -5,6 +5,10 @@
 .o-form {
 }
 
+.o-form_footer {
+  text-align: right;
+}
+
 // Label
 // ====================================================================================
 
@@ -47,4 +51,14 @@
     border-color: lighten($danger, 15%);
   }
   transition: border-color $speed $easing;
+}
+
+// Button
+// ====================================================================================
+
+.o-form_btn {
+  margin-top: rem($unit);
+  &:not(:last-child) {
+    margin-right: rem($unit / 2);
+  }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import cn from "classnames-helper";
 
 // Components
@@ -7,23 +7,25 @@ import Footer from "../Footer";
 import Overlay from "./components/Overlay";
 
 // Modules
-// import LayoutManager from "../../modules/LayoutManager";
 import Modal from "../../modules/Modal";
+import LayoutManager from "../../modules/LayoutManager";
 
 // Contexts
 import AppContext, { getAppContextValue } from "./contexts/AppContext";
-import { FileSystemContext } from ".";
+import FileSystemContext, { getFileSystemContextValue } from "./contexts/FileSystemContext";
 
 function App() {
   return (
     <AppContext.Consumer>
-      {({ modal, isOverlay, isUserNovice }) => (
+      {({ isOverlay, isUserNovice }) => (
         <div id="js-app" className={cn("c-app", ["t-novice", isUserNovice()])}>
           <Header />
-          <main>{/* <LayoutManager /> */}</main>
+          <main>
+            <LayoutManager />
+          </main>
           <Footer />
-          <Modal />
           <Overlay show={isOverlay} />
+          <Modal />
         </div>
       )}
     </AppContext.Consumer>
@@ -33,7 +35,7 @@ function App() {
 function Root() {
   return (
     <AppContext.Provider value={getAppContextValue()}>
-      <FileSystemContext.Provider>
+      <FileSystemContext.Provider value={getFileSystemContextValue()}>
         <App />
       </FileSystemContext.Provider>
     </AppContext.Provider>

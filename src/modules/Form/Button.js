@@ -4,12 +4,12 @@ import cn from "classnames-helper";
 
 /* eslint-disable react/button-has-type */
 
-function ModalButton({ submit, disabled, text, action }) {
+function Button({ submit, text, disabled, action }) {
   return (
     <button
       disabled={submit && disabled}
       type={submit ? "submit" : "button"}
-      className={cn("c-modal_btn o-btn", ["-main", submit])}
+      className={cn("o-form_btn o-btn", ["-main", submit])}
       onClick={action}
     >
       {text}
@@ -17,17 +17,17 @@ function ModalButton({ submit, disabled, text, action }) {
   );
 }
 
-ModalButton.defaultProps = {
+Button.defaultProps = {
   disabled: false,
   submit: false,
   action: null
 };
 
-ModalButton.propTypes = {
+Button.propTypes = {
   disabled: PropTypes.bool,
   submit: PropTypes.bool,
   text: PropTypes.string.isRequired,
   action: PropTypes.func
 };
 
-export default ModalButton;
+export default Button;

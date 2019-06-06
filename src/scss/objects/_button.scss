@@ -4,7 +4,7 @@
 
 .o-btn {
   padding: rem($unit / 2) rem($unit);
-  border: solid 1px lighten($gray, 5%);
+  border: solid 1px darken($gray-light, 3%);
   border-radius: rem($border-radius);
   background-color: $gray-light;
   @include u-hocus {
@@ -13,17 +13,26 @@
 
   &.-main {
     color: $white;
-    border-color: darken($default-color, 5%);
+    border-color: darken($default-color, 3%);
     background-color: $default-color;
     @include u-hocus {
       background-color: $default-color-dark;
     }
     .t-novice & {
-      border-color: darken($novice-color, 5%);
+      border-color: darken($novice-color, 3%);
       background-color: $novice-color;
       @include u-hocus {
         background-color: $novice-color-dark;
       }
+    }
+  }
+
+  &[disabled="true"] {
+    color: $gray-dark;
+    background-color: $gray;
+    @include u-hocus {
+      color: $gray-dark;
+      background-color: $gray;
     }
   }
 

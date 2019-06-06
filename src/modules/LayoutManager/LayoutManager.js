@@ -3,7 +3,7 @@ import cn from "classnames-helper";
 
 // Components
 import LayoutHandle from "./components/SplitterHandle";
-import LyaoutView from "./components/SplitterView";
+import LayoutView from "./components/SplitterView";
 import CodeEditor from "../../components/CodeEditor";
 import Console from "../../components/Console";
 
@@ -39,12 +39,12 @@ function LayoutManager() {
                   position={handlePosition}
                   setPosition={setHandlePosition}
                 />
-                <LyaoutView index={0} isHorizontal={isHorizontal} handlePosition={handlePosition}>
+                <LayoutView index={0} isHorizontal={isHorizontal} handlePosition={handlePosition}>
                   {isEditorFirst ? <CodeEditor /> : <Console />}
-                </LyaoutView>
-                <LyaoutView index={1} isHorizontal={isHorizontal} handlePosition={handlePosition}>
+                </LayoutView>
+                <LayoutView index={1} isHorizontal={isHorizontal} handlePosition={handlePosition}>
                   {!isEditorFirst ? <CodeEditor /> : <Console />}
-                </LyaoutView>
+                </LayoutView>
               </div>
             );
         }
