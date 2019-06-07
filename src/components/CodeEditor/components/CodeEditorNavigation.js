@@ -1,28 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 // Component
-import AddIcon from "react-ionicons/lib/MdAdd";
-import Tab from "./_base/CodeEditorTab";
+import Tab from "./CodeEditorTab";
+import QuickMenu from "./CodeEditorQuickMenu";
+import CreateFileButton from "./CodeEditorCreateFileButton";
 
-function CodeEditorNavigation({ files, activeFileIndex, createFile, deleteFileById }) {
+function CodeEditorNavigation({ files, activeFileIndex, deleteFileById, setActiveFileIndex }) {
   return (
-    <nav className="c-code-editor_nav o-wrapper">
-      {/* <div>File menu : TODO</div> */}
+    <nav className="c-code-editor_nav">
+      <QuickMenu files={files} activeFileIndex={activeFileIndex} />
       <ul className="c-code-editor_tabs-list">
         {files.map((file, index) => (
           <Tab
-            key={file.filename}
+            key={`tab--${file.filename}--index-${index}`}
             filename={file.filename}
             active={activeFileIndex === index}
-            onClick={() => null}
-            onClose={() => null}
+            onClick={() => setActiveFileIndex(index)}
+            onClose={() => deleteFileById(index)}
           />
         ))}
       </ul>
-      <button className="c-code-editor_add-btn" type="button" onClick={() => null}>
-        <AddIcon className="c-code-editor_add-btn_icon" color="currentColor" />
-      </button>
+      <CreateFileButton />
     </nav>
   );
 }
@@ -31,6 +30,7 @@ CodeEditorNavigation.propTypes = {
   activeFileIndex: PropTypes.number.isRequired,
   createFile: PropTypes.func.isRequired,
   deleteFileById: PropTypes.func.isRequired,
+  setActiveFileIndex: PropTypes.func.isRequired,
   files: PropTypes.arrayOf(
     PropTypes.shape({
       tabIndex: PropTypes.number.isRequired,

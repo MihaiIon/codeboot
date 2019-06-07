@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useContext, useState } from "react";
 
 // Components
 import { Controlled as CodeMirror } from "react-codemirror2";
@@ -10,26 +10,39 @@ import { FileSystemContext } from "../App";
 import defaultOptions from "./core/options";
 
 function CodeEditor() {
+  const {
+    files,
+    activeFileIndex,
+    deleteFileById,
+    getActiveFileValue,
+    setActiveFileIndex,
+    setFileValueById
+  } = useContext(FileSystemContext);
+
+  const [value, setValue] = useState(getActiveFileValue());
+
   return (
-    <FileSystemContext.Consumer>
-      {({ files, activeFileIndex, createFile, deleteFileById, getActiveFileValue }) => (
-        <section className="c-code-editor">
-          <Navigation
-            files={files}
-            activeFileIndex={activeFileIndex}
-            createFile={createFile}
-            deleteFileById={deleteFileById}
-          />
-          <CodeMirror
-            className="c-code-editor_tool o-wrapper"
-            value={getActiveFileValue()}
-            options={{ ...defaultOptions }}
-            onBeforeChange={(e, d, v) => null}
-            onChange={(e, d, v) => null}
-          />
-        </section>
+    <section className="c-code-editor">
+      <Navigation
+        files={files}
+        activeFileIndex={activeFileIndex}
+        deleteFileById={deleteFileById}
+        setActiveFileIndex={setActiveFileIndex}
+      />
+      {value !== null ? (
+        <CodeMirror
+          className="c-code-editor_tool o-wrapper"
+          value={value}
+          options={{ ...defaultOptions }}
+          onBeforeChange={(e, d, v) => null}
+          onChange={(e, d, v) => null}
+        />
+      ) : (
+        <div className="c-code-editor_no-editor">
+          <p className="c-code-editor_no-editor_p">No file available</p>
+        </div>
       )}
-    </FileSystemContext.Consumer>
+    </section>
   );
 }
 

@@ -6,7 +6,7 @@ import Item from "./_base/HeaderItem";
 // Contexts
 import { AppContext } from "../../App";
 
-function NewFile() {
+function HeaderCreateFileButton() {
   return (
     <AppContext.Consumer>
       {({ showCreateFileModal }) => (
@@ -18,4 +18,4 @@ function NewFile() {
   );
 }
 
-export default NewFile;
+export default HeaderCreateFileButton;

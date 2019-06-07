@@ -9,7 +9,8 @@
 }
 
 .c-code-editor_nav,
-.c-code-editor_tool {
+.c-code-editor_tool,
+.c-code-editor_no-editor {
   z-index: 1;
   position: absolute;
 }
@@ -33,17 +34,39 @@
   background-color: $gray-light;
 }
 
+.c-code-editor_quick-menu,
 .c-code-editor_tabs-list,
-.c-code-editor_add-btn {
+.c-code-editor_create-file-btn {
   display: inline-block;
 }
 
+// Quick Menu
+// ====================================================================================
+
+.c-code-editor_quick-menu {
+  margin: 0 rem($unit / 4);
+}
+
+.c-code-editor_quick-menu_toggle-btn {
+  height: 100%;
+  border: none;
+  background-color: $gray-light;
+}
+
+// Tab
+// ====================================================================================
+
 .c-code-editor_tab {
   display: inline-block;
-  padding: rem($code-editor--tab-padding) rem($code-editor--tab-padding * 1.25);
-  &:not(:last-child) {
-    margin-right: rem($code-editor--tab-spacing);
-  }
+  padding: rem($code-editor--tab-padding);
+  padding-right: rem($code-editor--tab-padding * 1.25);
+  padding-left: rem($code-editor--tab-padding * 1.85);
+  margin-right: rem($code-editor--tab-spacing);
+
+  cursor: pointer;
+  font-weight: $light;
+  border-top-left-radius: rem($code-editor--border-radius);
+  border-top-right-radius: rem($code-editor--border-radius);
 
   background-color: rgba($color: $white, $alpha: 0.5);
   &:hover,
@@ -51,16 +74,12 @@
     background-color: $white;
   }
   transition: background-color $speed;
-
-  cursor: pointer;
-  font-weight: $light;
-  border-top-left-radius: rem($code-editor--border-radius);
-  border-top-right-radius: rem($code-editor--border-radius);
 }
 
 .c-code-editor_tab_name,
 .c-code-editor_tab_close-btn {
   display: inline-block;
+  vertical-align: middle;
 }
 
 .c-code-editor_tab_name {
@@ -72,9 +91,13 @@
   }
 }
 
-.c-code-editor_tab_icon {
+.c-code-editor_tab_close-btn,
+.c-code-editor_tab_close-btn_icon {
   width: rem($code-editor--tab-icon-size);
   height: rem($code-editor--tab-icon-size);
+}
+
+.c-code-editor_tab_close-btn_icon {
   color: $gray;
   transition: color $speed;
   &:hover {
@@ -82,13 +105,16 @@
   }
 }
 
-.c-code-editor_add-btn {
+// Create File Button
+// ====================================================================================
+
+.c-code-editor_create-file-btn {
   width: rem($code-editor--add-btn-size);
   height: rem($code-editor--add-btn-size);
-  margin-left: rem($unit / 2);
   margin-bottom: rem($unit / 4);
+  vertical-align: baseline;
 
-  color: white;
+  color: $white;
   border-radius: 4px;
   background-color: lighten($gray, 10%);
   &:hover {
@@ -100,12 +126,26 @@
 // CodeMirror
 // ====================================================================================
 
-.c-code-editor_tool {
+.c-code-editor_tool,
+.c-code-editor_no-editor {
   top: rem($code-editor--navigation-height);
   bottom: 0;
   right: 0;
   left: 0;
+}
 
+.c-code-editor_tool {
   padding-top: rem($unit);
   padding-bottom: rem($unit);
+}
+
+.c-code-editor_no-editor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-code-editor_no-editor_p {
+  color: $gray-dark;
+  font-weight: $light;
 }

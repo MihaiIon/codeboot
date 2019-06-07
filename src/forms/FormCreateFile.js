@@ -9,7 +9,7 @@ import { Label, Button, FormFooter } from "../modules/Form";
 import { Highlight } from "../modules/InfoBubble";
 
 // Contexts
-import { AppContext, FileSystemContext } from "../components/App";
+import { AppContext } from "../components/App";
 
 // Schema
 // ====================================================================================
@@ -44,8 +44,10 @@ function FormCreateFile({ onSubmit }) {
         collaborators: ""
       }}
       validationSchema={schema}
-      onSubmit={({ filename, collaborators }) => {
+      onSubmit={({ filename, collaborators }, actions) => {
         onSubmit(filename, collaborators);
+        actions.setValues({ filename: "", collaborators: "" });
+        actions.setErrors({ filename: "", collaborators: "" });
       }}
       render={({ errors, touched }) => (
         <Form>

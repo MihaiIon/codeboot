@@ -7,7 +7,7 @@ import cn from "classnames-helper";
 import Logo from "./components/Logo";
 import List from "./components/_base/HeaderList";
 import Navigation from "./components/_base/HeaderNav";
-import NewFile from "./components/NewFile";
+import CreateFileButton from "./components/HeaderCreateFileButton";
 import Controls from "./components/Controls";
 
 function Header() {
@@ -17,7 +17,7 @@ function Header() {
         <Logo />
         <div className="c-header_separator o-layout_item" />
         <List>
-          <NewFile />
+          <CreateFileButton />
         </List>
       </Navigation>
       <Navigation linked>

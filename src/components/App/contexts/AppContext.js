@@ -49,7 +49,7 @@ export function getAppContextValue() {
   const [modal, setModalState] = useState({
     title: null,
     content: null,
-    isVisible: false
+    show: false
   });
   // Layout Manager
   // ------------------------------------------------------
@@ -85,32 +85,33 @@ export function getAppContextValue() {
     modal,
     hideModal: () => {
       setOverlayState(false);
-      setModalState(currState => ({ ...currState, isVisible: false }));
+      setModalState(currState => ({ ...currState, show: false }));
     },
     showCreateFileModal: () => {
       setOverlayState(true);
       setModalState({
-        isVisible: true,
+        show: true,
         title: "create script",
         content: (
           <FileSystemContext.Consumer>
             {({ setFileSystem }) => (
               <FormCreateFile
                 onSubmit={(filename, collaborators) => {
+                  // Create file
                   setFileSystem(({ files, length }) => {
                     const tmp = filename.split(".");
-                    files.push(
-                      new File(length, tmp[0], tmp[1], "", collaborators.split(", ").join("\n"))
-                    );
+                    files.push(new File(length, tmp[0], tmp[1], "", collaborators.split(", ")));
                     return {
                       length: length + 1,
                       activeFileIndex: length,
                       files
                     };
                   });
+                  // Close Modal
                   setOverlayState(false);
-                  setModalState(currState => ({ ...currState, isVisible: false }));
-                  if (layoutManager.layout !== LAYOUT_SPLIT) {
+                  setModalState(currState => ({ ...currState, show: false }));
+                  // Update Layout
+                  if (layoutManager.layout === CONSOLE_ONLY) {
                     setLayoutManager(({ editorPosition }) => ({
                       editorPosition,
                       layout: LAYOUT_SPLIT
