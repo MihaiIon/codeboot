@@ -5,14 +5,14 @@ import LayoutNavigation from "./components/FooterLayoutNavigation";
 import EditorPositionNavigation from "./components/FooterEditorPositionNavigation";
 
 // Contexts
-import { AppContext } from "../App";
+import { AppConsumer } from "../Root";
 
 // Footer
 // ====================================================================================
 
 function Footer() {
   return (
-    <AppContext.Consumer>
+    <AppConsumer>
       {({
         isEditorOnly,
         isConsoleOnly,
@@ -52,7 +52,7 @@ function Footer() {
           />
         </footer>
       )}
-    </AppContext.Consumer>
+    </AppConsumer>
   );
 }
 

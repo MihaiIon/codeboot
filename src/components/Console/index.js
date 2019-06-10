@@ -5,11 +5,11 @@ import ConsoleInput from "./components/ConsoleInput";
 import ClearButton from "./components/ConsoleClearButton";
 
 // Contexts
-import { AppContext } from "../App";
+import { AppConsumer } from "../Root";
 
 function Console() {
   return (
-    <AppContext.Consumer>
+    <AppConsumer>
       {({ consoleHistory, consoleOutput }) => (
         <section className="c-console">
           <div className="c-console_body">
@@ -23,7 +23,7 @@ function Console() {
           </aside>
         </section>
       )}
-    </AppContext.Consumer>
+    </AppConsumer>
   );
 }
 

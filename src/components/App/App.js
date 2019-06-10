@@ -11,12 +11,11 @@ import Modal from "../../modules/Modal";
 import LayoutManager from "../../modules/LayoutManager";
 
 // Contexts
-import AppContext, { getAppContextValue } from "./contexts/AppContext";
-import FileSystemContext, { getFileSystemContextValue } from "./contexts/FileSystemContext";
+import { AppConsumer } from "../Root";
 
 function App() {
   return (
-    <AppContext.Consumer>
+    <AppConsumer>
       {({ isOverlay, isUserNovice }) => (
         <div id="js-app" className={cn("c-app", ["t-novice", isUserNovice()])}>
           <Header />
@@ -28,18 +27,8 @@ function App() {
           <Modal />
         </div>
       )}
-    </AppContext.Consumer>
+    </AppConsumer>
   );
 }
 
-function Root() {
-  return (
-    <AppContext.Provider value={getAppContextValue()}>
-      <FileSystemContext.Provider value={getFileSystemContextValue()}>
-        <App />
-      </FileSystemContext.Provider>
-    </AppContext.Provider>
-  );
-}
-
-export default Root;
+export default App;

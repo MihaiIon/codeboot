@@ -4,11 +4,11 @@ import React from "react";
 import AddIcon from "react-ionicons/lib/MdAdd";
 
 // Contexts
-import { AppContext } from "../../App";
+import { AppConsumer } from "../../Root";
 
 function CreateFileButton() {
   return (
-    <AppContext.Consumer>
+    <AppConsumer>
       {({ showCreateFileModal }) => (
         <button
           className="c-code-editor_create-file-btn"
@@ -18,7 +18,7 @@ function CreateFileButton() {
           <AddIcon className="c-code-editor_create-file-btn_icon" color="currentColor" />
         </button>
       )}
-    </AppContext.Consumer>
+    </AppConsumer>
   );
 }
 

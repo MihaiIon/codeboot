@@ -6,7 +6,7 @@ import { Spring, animated as a } from "react-spring/renderprops";
 import CloseIcon from "react-ionicons/lib/MdClose";
 
 // Contexts
-import { AppContext } from "../components/App";
+import { AppContext } from "../components/Root";
 
 function Modal() {
   const [isVisible, setVisibility] = useState(false);

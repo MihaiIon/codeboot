@@ -4,7 +4,8 @@ import React, { useContext, useState } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import Navigation from "./components/CodeEditorNavigation";
 
-import { FileSystemContext } from "../App";
+// Contexts
+import { FileSystemContext } from "../Root";
 
 // Constants
 import defaultOptions from "./core/options";
@@ -13,13 +14,13 @@ function CodeEditor() {
   const {
     files,
     activeFileIndex,
-    deleteFileById,
-    getActiveFileValue,
     setActiveFileIndex,
-    setFileValueById
+    setFileValueById,
+    getActiveFileValue,
+    deleteFileById
   } = useContext(FileSystemContext);
 
-  const [value, setValue] = useState(getActiveFileValue());
+  // const [value, setValue] = useState();
 
   return (
     <section className="c-code-editor">
@@ -29,10 +30,10 @@ function CodeEditor() {
         deleteFileById={deleteFileById}
         setActiveFileIndex={setActiveFileIndex}
       />
-      {value !== null ? (
+      {getActiveFileValue() !== null ? (
         <CodeMirror
           className="c-code-editor_tool o-wrapper"
-          value={value}
+          value={getActiveFileValue()}
           options={{ ...defaultOptions }}
           onBeforeChange={(e, d, v) => null}
           onChange={(e, d, v) => null}

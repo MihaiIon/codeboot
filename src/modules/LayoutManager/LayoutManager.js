@@ -8,7 +8,7 @@ import CodeEditor from "../../components/CodeEditor";
 import Console from "../../components/Console";
 
 // Contexts
-import { AppContext } from "../../components/App";
+import { AppConsumer } from "../../components/Root";
 
 // Constants
 import { LAYOUT_MANAGER__LAYOUT_SETTING } from ".";
@@ -19,7 +19,7 @@ import { LAYOUT_MANAGER__LAYOUT_SETTING } from ".";
 function LayoutManager() {
   const [handlePosition, setHandlePosition] = useState(0.5);
   return (
-    <AppContext.Consumer>
+    <AppConsumer>
       {({ layoutManager: { layout }, isEditorTop, isEditorBottom, isEditorLeft }) => {
         const isHorizontal = isEditorTop() || isEditorBottom();
         const isEditorFirst = isEditorTop() || isEditorLeft();
@@ -49,7 +49,7 @@ function LayoutManager() {
             );
         }
       }}
-    </AppContext.Consumer>
+    </AppConsumer>
   );
 }
 

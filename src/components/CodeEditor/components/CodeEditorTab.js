@@ -9,8 +9,10 @@ class CodeEditorTab extends Component {
     const { active, filename } = this.props;
     const { onClose, onClick } = this.props;
     return (
-      <li className={`c-code-editor_tab${active ? " -active" : ""}`} onClick={onClick}>
-        <span className="c-code-editor_tab_name">{filename}</span>
+      <li className={`c-code-editor_tab${active ? " -active" : ""}`}>
+        <button type="button" onClick={onClick} className="c-code-editor_tab_action-btn">
+          <span className="c-code-editor_tab_name">{filename}</span>
+        </button>
         <button className="c-code-editor_tab_close-btn" type="button" onClick={onClose}>
           <CloseIcon className="c-code-editor_tab_close-btn_icon" color="currentColor" />
         </button>

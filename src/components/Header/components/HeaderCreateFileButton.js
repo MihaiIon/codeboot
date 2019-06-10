@@ -4,17 +4,17 @@ import React from "react";
 import Item from "./_base/HeaderItem";
 
 // Contexts
-import { AppContext } from "../../App";
+import { AppConsumer } from "../../Root";
 
 function HeaderCreateFileButton() {
   return (
-    <AppContext.Consumer>
+    <AppConsumer>
       {({ showCreateFileModal }) => (
         <Item transparent onClick={showCreateFileModal}>
           <img className="c-header_btn_img" src="./assets/file.svg" alt="Add new script" />
         </Item>
       )}
-    </AppContext.Consumer>
+    </AppConsumer>
   );
 }
 

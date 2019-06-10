@@ -58,9 +58,8 @@
 
 .c-code-editor_tab {
   display: inline-block;
-  padding: rem($code-editor--tab-padding);
-  padding-right: rem($code-editor--tab-padding * 1.25);
-  padding-left: rem($code-editor--tab-padding * 1.85);
+  padding-right: rem($code-editor--tab-padding * 0.85);
+  padding-left: rem($code-editor--tab-padding * 0.85);
   margin-right: rem($code-editor--tab-spacing);
 
   cursor: pointer;
@@ -82,10 +81,15 @@
   vertical-align: middle;
 }
 
+.c-code-editor_tab_action-btn {
+  padding: rem($code-editor--tab-padding);
+  padding-right: rem($unit / 2);
+  border: none;
+}
+
 .c-code-editor_tab_name {
-  font-size: rem($code-editor--tab-font-size);
-  margin-right: rem($unit / 2);
   color: rgba($color: $black, $alpha: 0.85);
+  font-size: rem($code-editor--tab-font-size);
   .c-code-editor_tab.-active & {
     color: $black;
   }

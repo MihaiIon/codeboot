@@ -8,7 +8,7 @@ import "codemirror/mode/javascript/javascript";
 import "./scss/main.scss";
 
 // Components
-import App from "./components/App";
+import Root from "./components/Root";
 
 // Render App
 
@@ -16,4 +16,4 @@ if (module.hot) {
   module.hot.accept();
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<Root />, document.getElementById("root"));

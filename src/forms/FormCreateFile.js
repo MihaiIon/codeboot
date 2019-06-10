@@ -9,7 +9,7 @@ import { Label, Button, FormFooter } from "../modules/Form";
 import { Highlight } from "../modules/InfoBubble";
 
 // Contexts
-import { AppContext } from "../components/App";
+import { AppConsumer } from "../components/Root";
 
 // Schema
 // ====================================================================================
@@ -103,9 +103,9 @@ function FormCreateFile({ onSubmit }) {
           {/* ------------------------------------------------------ */}
 
           <FormFooter>
-            <AppContext.Consumer>
+            <AppConsumer>
               {({ hideModal }) => <Button text="Cancel" action={hideModal} />}
-            </AppContext.Consumer>
+            </AppConsumer>
             <Button submit text="Create Script" />
           </FormFooter>
         </Form>
