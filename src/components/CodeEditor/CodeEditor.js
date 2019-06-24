@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 // Components
 import { Controlled as CodeMirror } from "react-codemirror2";
@@ -8,7 +8,7 @@ import Navigation from "./components/CodeEditorNavigation";
 import { FileSystemContext } from "../Root";
 
 // Constants
-import defaultOptions from "./core/options";
+import { options, SAVE_INTERVAL } from "./core/constants";
 
 function CodeEditor() {
   const {
@@ -20,7 +20,21 @@ function CodeEditor() {
     deleteFileById
   } = useContext(FileSystemContext);
 
-  const [value, setValue] = useState(false);
+  // Current value
+  const [value, setValue] = useState(getActiveFileValue() || "");
+  const [lastActiveFileIndex, setCurrentActiveFileIndex] = useState(activeFileIndex);
+
+  useEffect(() => {
+    if (lastActiveFileIndex !== activeFileIndex) {
+      setCurrentActiveFileIndex(activeFileIndex);
+      setValue(getActiveFileValue());
+    }
+  });
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => setFileValueById(activeFileIndex, value), SAVE_INTERVAL);
+  //   return () => clearInterval(interval);
+  // });
 
   return (
     <section className="c-code-editor">
@@ -30,13 +44,15 @@ function CodeEditor() {
         deleteFileById={deleteFileById}
         setActiveFileIndex={setActiveFileIndex}
       />
-      {getActiveFileValue() !== null ? (
+      {lastActiveFileIndex !== null && lastActiveFileIndex >= 0 ? (
         <CodeMirror
           className="c-code-editor_tool o-wrapper"
-          value={getActiveFileValue()}
-          options={{ ...defaultOptions }}
-          onBeforeChange={(e, d, v) => null}
-          onChange={(e, d, v) => null}
+          value={value}
+          options={{ ...options }}
+          onBeforeChange={(editor, data, value) => {
+            setValue(value);
+          }}
+          onChange={(editor, data, value) => null}
         />
       ) : (
         <div className="c-code-editor_no-editor">
