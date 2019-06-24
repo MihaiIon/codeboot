@@ -26,7 +26,9 @@ export class File {
       this.value =
         collaborators.length === 0 || (collaborators.length === 1 && collaborators[0].length === 0)
           ? ""
-          : collaborators.map((str, index) => `// Collaborator ${index + 1}: ${str}`).join("\n");
+          : `${collaborators
+              .map((str, index) => `// Collaborator ${index + 1}: ${str}`)
+              .join("\n")}\n\n`;
     } else {
       this.value = value;
     }

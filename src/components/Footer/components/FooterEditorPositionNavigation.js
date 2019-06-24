@@ -22,14 +22,14 @@ function FooterEditorPositionNavigation({
         <Item active={isEditorTop()} action={() => setEditorToTop()}>
           Code Top
         </Item>
-        <Item active={isEditorRight()} action={() => setEditorToRight()}>
-          Code Right
-        </Item>
         <Item active={isEditorBottom()} action={() => setEditorToBottom()}>
           Code Bottom
         </Item>
         <Item active={isEditorLeft()} action={() => setEditorToLeft()}>
           Code Left
+        </Item>
+        <Item active={isEditorRight()} action={() => setEditorToRight()}>
+          Code Right
         </Item>
       </Navigation>
     )

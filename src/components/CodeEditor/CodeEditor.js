@@ -20,7 +20,7 @@ function CodeEditor() {
     deleteFileById
   } = useContext(FileSystemContext);
 
-  // const [value, setValue] = useState();
+  const [value, setValue] = useState(false);
 
   return (
     <section className="c-code-editor">
