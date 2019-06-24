@@ -1,17 +1,18 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames-helper";
 
 // Helpers
 // ====================================================================================
 
 /**
- * TODO
+ * Adjusts the view size to follow the handle.
  *
+ * @param {Number} index View position
  * @param {Boolean} isHorizontal TODO
- * @param {Number} index TODO
  * @param {Number} handlePosition TODO
  */
-const getStyles = (isHorizontal, index, handlePosition) => {
+const getStyles = (index, isHorizontal, handlePosition) => {
   if (isHorizontal) {
     return index === 0
       ? { height: `${100 * handlePosition}%` }
@@ -25,22 +26,24 @@ const getStyles = (isHorizontal, index, handlePosition) => {
 // Component
 // ====================================================================================
 
-function SplitterView({ children, isHorizontal, index, handlePosition }) {
+function LayoutManagerView({ children, only, show, index, isHorizontal, handlePosition }) {
   return (
     <div
-      className={`c-layout-manager_view -${index}`}
-      style={getStyles(isHorizontal, index, handlePosition)}
+      className={cn("c-layout-manager_view", ["-only", only], ["-show", show], `-index--${index}`)}
+      style={!only ? getStyles(index, isHorizontal, handlePosition) : null}
     >
       {children}
     </div>
   );
 }
 
-SplitterView.propTypes = {
+LayoutManagerView.propTypes = {
+  only: PropTypes.bool.isRequired,
+  show: PropTypes.bool.isRequired,
+  index: PropTypes.number.isRequired,
   isHorizontal: PropTypes.bool.isRequired,
   handlePosition: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
   children: PropTypes.node.isRequired
 };
 
-export default SplitterView;
+export default LayoutManagerView;

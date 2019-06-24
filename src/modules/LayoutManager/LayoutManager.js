@@ -2,52 +2,71 @@ import React, { useState } from "react";
 import cn from "classnames-helper";
 
 // Components
-import LayoutHandle from "./components/SplitterHandle";
-import LayoutView from "./components/SplitterView";
+import Handle from "./components/LayoutManagerHandle";
+import View from "./components/LayoutManagerView";
 import CodeEditor from "../../components/CodeEditor";
 import Console from "../../components/Console";
 
 // Contexts
 import { AppConsumer } from "../../components/Root";
 
-// Constants
-import { LAYOUT_MANAGER__LAYOUT_SETTING } from ".";
-
-// Splitter
-// ====================================================================================
-
 function LayoutManager() {
   const [handlePosition, setHandlePosition] = useState(0.5);
+
   return (
     <AppConsumer>
-      {({ layoutManager: { layout }, isEditorTop, isEditorBottom, isEditorLeft }) => {
-        const isHorizontal = isEditorTop() || isEditorBottom();
-        const isEditorFirst = isEditorTop() || isEditorLeft();
-        switch (layout) {
-          case LAYOUT_MANAGER__LAYOUT_SETTING.CONSOLE_ONLY:
-            return <Console />;
-          case LAYOUT_MANAGER__LAYOUT_SETTING.EDITOR_ONLY:
-            return <CodeEditor />;
-          default:
-            return (
-              <div
-                id="js-layout-manager"
-                className={cn("c-layout-manager", ["-horizontal", "-vertical", isHorizontal])}
-              >
-                <LayoutHandle
-                  isHorizontal={isHorizontal}
-                  position={handlePosition}
-                  setPosition={setHandlePosition}
-                />
-                <LayoutView index={0} isHorizontal={isHorizontal} handlePosition={handlePosition}>
-                  {isEditorFirst ? <CodeEditor /> : <Console />}
-                </LayoutView>
-                <LayoutView index={1} isHorizontal={isHorizontal} handlePosition={handlePosition}>
-                  {!isEditorFirst ? <CodeEditor /> : <Console />}
-                </LayoutView>
-              </div>
-            );
-        }
+      {({
+        isEditorOnly,
+        isConsoleOnly,
+        isLayoutSplit,
+        isEditorTop,
+        isEditorBottom,
+        isEditorLeft
+      }) => {
+        const isTop = isEditorTop();
+        const isBottom = isEditorBottom();
+        const isLeft = isEditorLeft();
+
+        const isSplit = isLayoutSplit();
+        const isHorizontal = isSplit && (isTop || isBottom);
+
+        const isConsole = isConsoleOnly();
+        const isEditor = isEditorOnly();
+
+        return (
+          <div
+            id="js-layout-manager"
+            className={cn(
+              "c-layout-manager",
+              ["-split", isSplit],
+              ["-horizontal", "-vertical", isHorizontal]
+            )}
+          >
+            <Handle
+              isHorizontal={isHorizontal}
+              position={handlePosition}
+              setPosition={setHandlePosition}
+            />
+            <View
+              only={isConsole}
+              show={isSplit || isConsole}
+              index={isTop || isLeft ? 1 : 0}
+              isHorizontal={isHorizontal}
+              handlePosition={handlePosition}
+            >
+              <Console />
+            </View>
+            <View
+              only={isEditor}
+              show={isSplit || isEditor}
+              index={isTop || isLeft ? 0 : 1}
+              isHorizontal={isHorizontal}
+              handlePosition={handlePosition}
+            >
+              <CodeEditor />
+            </View>
+          </div>
+        );
       }}
     </AppConsumer>
   );

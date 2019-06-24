@@ -1,8 +1,10 @@
 // ====================================================================================
-// Modules / Code Editor / Core / Options
+// Modules / Code Editor / Core / Constants
 // ====================================================================================
 
-export default {
+export const SAVE_INTERVAL = 3000;
+
+export const options = {
   mode: "javascript",
   theme: "eclipse",
   lineNumbers: false,

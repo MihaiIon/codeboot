@@ -38,6 +38,7 @@
 .c-code-editor_tabs-list,
 .c-code-editor_create-file-btn {
   display: inline-block;
+  vertical-align: baseline;
 }
 
 // Quick Menu
@@ -115,8 +116,7 @@
 .c-code-editor_create-file-btn {
   width: rem($code-editor--add-btn-size);
   height: rem($code-editor--add-btn-size);
-  margin-bottom: rem($unit / 4);
-  vertical-align: baseline;
+  margin-top: rem($unit / 6);
 
   color: $white;
   border-radius: 4px;
